@@ -58,7 +58,7 @@ If the application’s subscription omits a callback URL, that will indicate to 
 -	Although pushed notifications remain in CDS for a short time after being delivered, there are no API endpoints that would enable a re-delivery to be requested
 
 
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Pushnot1.png?raw=true)
+![](figures/Pushnot1.png)
 
 
 **Pull notifications**
@@ -66,7 +66,7 @@ If the application’s subscription omits a callback URL, that will indicate to 
 -	API endpoints allow identification of those notifications and the retrieval of selected notifications
 -	Pull retrieval also enables (within limits) previously read notifications to be re-read if necessary
 
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/PullNot1.png?raw=true)
+![](figures/PullNot1.png)
 
 ## API Subscription Model
 ### Application Subscription
@@ -81,36 +81,36 @@ Because an API subscription uniquely links a single external application to a si
 
 ### Use of single / multiple APIs
 An application may subscribe to multiple APIs:
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Sing-Mult1.png?raw=true)
+![](figures/Sing-Mult1.png)
 
 Alternatively an application may only subscribe to a single API:
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Sing-Sing1.png?raw=true)
+![](figures/Sing-Sing1.png)
 
 ### Mixed application notification mechanisms
 An application may use push notifications for one subscription but use pull notifications for another subscription.
 
 In this example, the trade application uses pull notifications for API1 since no call back is defined. For API2, the same application will use push notifications to the defined callback URL:
 
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Mixed-Not1.png?raw=true)
+![](figures/Mixed-Not1.png)
 
 ### Mixed API notifications
 An single API may use different notification models for different application subscriptions.
 In this example, two separate applications (ABC Trading & XYZ Imports) have subscribed to the same CDS API.
 The ABC Trading application has not defined a callback URL and will therefore use pull notifications. The XYZ Imports application is using push notifications, sent to the supplied callback URL:
 
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Mixed-API1.png?raw=true)
+![](figures/Mixed-API1.png)
 
 ### Mixed callback URLs
 Because each callback URL is defined as part of a subscription, an application may define different callback URLs for different push notifications. In this example, although a single application has subscribed to both API1 and API2, the push notifications from each API will be sent to a different URL because different URLs are specified in the two subscriptions:
 
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Mixed-Callback1.png?raw=true)
+![](figures/Mixed-Callback1.png)
 
 ## End-to-end user journeys
 These journeys show examples of how to use the APIs.<br>
 ### Submit Customs Declaration to CDS
 Submitter (individual, agent or CSP) submits a Customs Declaration to CDS:
 
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/SGSD.png?raw=true)
+![](figures/SGSD.png)
 
 ### Submit a supplementary declaration via a CSP
 The initial API call is step 1b where the CSP’s application calls the CDS API. At this point the CDS authentication mechanism is able to identify the application making the API call – and to associate the transaction with that application.
@@ -118,7 +118,7 @@ Later in the declaration processing, the submission undergoes risking and duty c
 - Where step 4a is using a push notification, the CDS system will use the identity of the application from step 1b to determine the relevant subscription – and hence the destination URL for the push delivery
 - Where step 4a is using a pull notification, the CDS system will store the message locally and wait for the agent’s software to retrieve it
 
- ![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Submit-Supp1.png?raw=true)
+ ![](figures/Submit-Supp1.png)
 
 ### Submit a pre-lodged inventory linked declaration
 The initial API call is step 1b where the CSP’s application calls the CDS API. As with the previous example, this is the point at which the CDS authentication mechanism is able to identify the application making the API call – and to associate the transaction with that application.
@@ -126,9 +126,9 @@ Later in the declaration workflow (step 3, after validation of the declaration) 
 - Where step 3 is using a push notification, the CDS system will use the identity of the application from step 1b to determine the relevant subscription – and hence the destination URL for the push delivery
 - Where step 3 is using a pull notification, the CDS system will store the message locally and wait for the agent’s or declarant’s software to retrieve it
 
-![](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/Submit-Prelodge1.png?raw=true)
+![](figures/Submit-Prelodge1.png)
 
-Other use cases are described in [CDS 10 End to End Sequence Diagrams v2.5](https://github.com/hmrc/customs-declarations-end-to-end-service-guide/blob/master/source/documentation/CDS%2010%20End%20to%20End%20Sequence%20Diagrams%20v2.5%20180721%20BW.pdf)
+Other use cases are described in [CDS 10 End to End Sequence Diagrams v2.5](figures/CDS%2010%20End%20to%20End%20Sequence%20Diagrams%20v2.5%20180721%20BW.pdf)
 ## Related API documentation
 [Customs Declarations API](https://developer.qa.tax.service.gov.uk/api-documentation/docs/api)<br>
 This API enables your application to submit a Customs Declaration.
