@@ -20,7 +20,7 @@ If the application’s subscription omits a callback URL, that will indicate to 
 -	Although pushed notifications remain in CDS for a short time after being delivered, there are no API endpoints that would enable a re-delivery to be requested
 
 
-![](documentation/figures/Pushnot1.png)
+![](documentation/figures/Pushnot1.svg)
 
 
 **Pull notifications**
@@ -29,7 +29,7 @@ If the application’s subscription omits a callback URL, that will indicate to 
 -	API endpoints allow identification of those notifications and the retrieval of selected notifications
 -	Pull retrieval also enables (within limits) previously read notifications to be re-read if necessary
 
-![](documentation/figures/PullNot1.png)
+![](documentation/figures/PullNot1.svg)
 
 ## API Subscription Model
 ### Application Subscription
@@ -44,26 +44,26 @@ Because an API subscription uniquely links a single external application to a si
 
 ### Use of single / multiple APIs
 An application may subscribe to multiple APIs:
-![](documentation/figures/Sing-Mult1.png)
+![](documentation/figures/Sing-Mult1.svg)
 
 Alternatively an application may only subscribe to a single API:
-![](documentation/figures/Sing-Sing1.png)
+![](documentation/figures/Sing-Sing1.svg)
 
 ### Mixed application notification mechanisms
 An application may use push notifications for one subscription but use pull notifications for another subscription.
 
 In this example, the trade application uses pull notifications for API1 since no call back is defined. For API2, the same application will use push notifications to the defined callback URL:
 
-![](documentation/figures/Mixed-Not1.png)
+![](documentation/figures/Mixed-Not1.svg)
 
 ### Mixed API notifications
 An single API may use different notification models for different application subscriptions.
 In this example, two separate applications (ABC Trading & XYZ Imports) have subscribed to the same CDS API.
 The ABC Trading application has not defined a callback URL and will therefore use pull notifications. The XYZ Imports application is using push notifications, sent to the supplied callback URL:
 
-![](documentation/figures/Mixed-API1.png)
+![](documentation/figures/Mixed-API1.svg)
 
 ### Mixed callback URLs
 Because each callback URL is defined as part of a subscription, an application may define different callback URLs for different push notifications. In this example, although a single application has subscribed to both API1 and API2, the push notifications from each API will be sent to a different URL because different URLs are specified in the two subscriptions:
 
-![](documentation/figures/Mixed-Callback1.png)
+![](documentation/figures/Mixed-Callback1.svg)
