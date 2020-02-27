@@ -16,11 +16,12 @@ If the application’s subscription omits a callback URL, that will indicate to 
 
 ### Receive a Notification
 **Push notifications**
+
 -	The push notification mechanism sends notifications out to the trade system as those notifications become available. i.e. CDS ‘pushes’ notifications as they are generated, and the trade system needs to be constantly ready to receive them
 -	Although pushed notifications remain in CDS for a short time after being delivered, there are no API endpoints that would enable a re-delivery to be requested
 
 
-![](figures/Pushnot1.svg)
+<img src="figures/Pushnot1.png"/>
 
 
 **Pull notifications**
@@ -29,7 +30,7 @@ If the application’s subscription omits a callback URL, that will indicate to 
 -	API endpoints allow identification of those notifications and the retrieval of selected notifications
 -	Pull retrieval also enables (within limits) previously read notifications to be re-read if necessary
 
-![](figures/PullNot1.svg)
+<img src="figures/PullNot1.png"/>
 
 ## API Subscription Model
 ### Application Subscription
@@ -39,31 +40,34 @@ Each subscription uniquely links a single external application (typically a trad
 
 ## Scope of subscription
 Because an API subscription uniquely links a single external application to a single CDS API, the scope of that subscription’s data is also limited to that unique association.
+
 - The subscription to an API defines the notification mechanism, and hence all endpoints within a single API must share the same notification mechanism for a given subscription
 - An API requires a separate subscription for each application wishing to use that API, and hence a single API may use different notification mechanisms for different applications.
 
 ### Use of single / multiple APIs
 An application may subscribe to multiple APIs:
-![](figures/Sing-Mult1.svg)
+
+<img src="figures/Sing-Mult1.png"/>
 
 Alternatively an application may only subscribe to a single API:
-![](figures/Sing-Sing1.svg)
+
+<img src="figures/Sing-Sing1.png"/>
 
 ### Mixed application notification mechanisms
 An application may use push notifications for one subscription but use pull notifications for another subscription.
 
 In this example, the trade application uses pull notifications for API1 since no call back is defined. For API2, the same application will use push notifications to the defined callback URL:
 
-![](figures/Mixed-Not1.svg)
+<img src="figures/Mixed-Not1.png"/>
 
 ### Mixed API notifications
 An single API may use different notification models for different application subscriptions.
 In this example, two separate applications (ABC Trading & XYZ Imports) have subscribed to the same CDS API.
 The ABC Trading application has not defined a callback URL and will therefore use pull notifications. The XYZ Imports application is using push notifications, sent to the supplied callback URL:
 
-![](figures/Mixed-API1.svg)
+<img src="figures/Mixed-API1.png"/>
 
 ### Mixed callback URLs
 Because each callback URL is defined as part of a subscription, an application may define different callback URLs for different push notifications. In this example, although a single application has subscribed to both API1 and API2, the push notifications from each API will be sent to a different URL because different URLs are specified in the two subscriptions:
 
-![](figures/Mixed-Callback1.svg)
+<img src="figures/Mixed-Callback1.png"/>
