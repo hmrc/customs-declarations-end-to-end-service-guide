@@ -9,7 +9,7 @@ description: Software developers, designers, product owners or business analysts
 
 This service guide explains how you can integrate your software with our APIs to help complete and submit Customs Declarations.
 
-It shows how the APIs fit into various end-to-end user journeys and it is intended to help software developers, designers, product owners and business analysts to understand how your software needs to interact with HMRC systems.
+It shows how the APIs fit into various end-to-end user journeys.
 
 ## Overview
 Customs Declarations Service (CDS) is replacing the Customs Handling of Import and Export Freight (CHIEF) with a modern and flexible system that can handle anticipated future import and export growth.
@@ -27,10 +27,6 @@ It is possible to complete and submit Customs Declarations using commercial soft
 - Make a customs declaration
 - Receive business event notifications generated from requests submitted via the CDS APIs
 
-Applications produced by external developers must subscribe to all of the CDS APIs that they wish to use. This enables access to the endpoints within the APIs. An application may subscribe to a single API or to multiple APIs.
-
-Each subscription uniquely links a single external application to a single CDS API, and records the information associated with that unique link.
-
 To use these APIs you must:
 
 -	[Have an appropriate HMRC online account (opens in a new tab)](https://www.gov.uk/log-in-register-hmrc-online-services).
@@ -47,19 +43,23 @@ CSPs have relationship with CHIEF – inventory linking (port to HMRC).
 ## End-to-end user journeys
 These journeys show examples of use. Journeys for software houses and traders are broken down into:<br>
 
-* [CDS set up activities](documentation/set-up.html#set-up)
-* [submitting customs declarations](documentation/submit-customs-declarations.html#submit-customs-declarations) 
+* [CDS set up activities for Developers](documentation/set-up-developers.html#set-up-for-developers)
+* [CDS set up activities for Traders](documentation/set-up-traders.html#set-up-for-traders)
+* [submitting customs declarations](documentation/submit-customs-declarations.html#submit-a-customs-declaration) 
 
 ## Related API documentation
-[Customs Declarations API](https://developer.qa.tax.service.gov.uk/api-documentation/docs/api)<br>
+
+[Customs Declarations API](/api-documentation/docs/api/service/customs-declarations)<br>
 This API enables your application to submit a Customs Declaration.
-[Pull Notifications API](https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/api-notification-pull/1.0)<br>
+
+[Pull Notifications API](/api-documentation/docs/api/service/api-notification-pull)<br>
 This API enables your application to “pull” business event notifications CDS has generated from requests submitted via the CDS APIs.<br>
+
 Other APIs related to the CDS APIs:
 
--	Customs Inventory Linking Exports API
--	Customs Inventory Linking Imports API (CSP Only)
--	Bulk Data File List (list of tariff codes)
+-	[Customs Inventory Linking Exports API](/api-documentation/docs/api/service/customs-inventory-linking-exports)
+-	[Customs Inventory Linking Imports API (CSP only)](/api-documentation/docs/api/service/customs-inventory-linking-imports)
+-	[Bulk Data File List (list of tariff codes)](/api-documentation/docs/api/service/secure-data-exchange-bulk-download)
 
 Other documentation related to CDS APIs:<br>
 
@@ -74,13 +74,4 @@ Other documentation related to CDS APIs:<br>
 -	[CDS – Tariff Download service -Identifying Duty Rates v1.0](https://drive.google.com/file/d/1xdvObWHuKVCQVYui2V_s7HlUyGSMkNJK/view?usp=sharing)
 
 ## Errors
-Errors specific to each API are shown in the Endpoints section, under Response. See our [reference](https://developer.service.hmrc.gov.uk/api-documentation/docs/reference-guide#errors) guide for more on errors.
 Specific CDS backend errors: CDS 03 Codelists and WCO References.
-
-
-
-To change the title of the page or include additional files you'll need to edit `source/index.html.md.erb`.
-
-If you want slightly more control, you can always use <strong>HTML</strong>.
-
-For more detail and troubleshooting, take a look at the `README.md` file in the root of this project.

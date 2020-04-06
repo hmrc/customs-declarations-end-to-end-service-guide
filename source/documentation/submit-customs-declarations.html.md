@@ -1,31 +1,46 @@
 ---
 title: Submit Customs Declarations | Customs Declarations End-to-End Service Guide
-weight: 3
+weight: 4
 ---
 
-# Submit Customs Declarations
+# Submit a customs declaration
 
-### Submit Customs Declaration to CDS
-Submitter (individual, agent or CSP) submits a Customs Declaration to CDS:
+### Submitter journey overview
+The submitter of a declaration can be:
 
-<img src="figures/SGSD.png"/>
+- an individual trader
+- an agent acting on their behalf
+- a CSP
 
-### Submit a supplementary declaration via a CSP
-The initial API call is step 1b where the CSP’s application calls the CDS API. At this point the CDS authentication mechanism is able to identify the application making the API call – and to associate the transaction with that application.
-Later in the declaration processing, the submission undergoes risking and duty calculation and then produces a subsequent notification for the CSP in step 4a.
+<img src="figures/Submit-a-customs-declaration.svg"/>
 
-- Where step 4a is using a push notification, the CDS system will use the identity of the application from step 1b to determine the relevant subscription – and hence the destination URL for the push delivery
-- Where step 4a is using a pull notification, the CDS system will store the message locally and wait for the agent’s software to retrieve it
+1. Submit declaration
+2. Receive response
+3. Receive notifications related to declaration
 
- <img src="figures/Submit-Supp1.png"/>
+### Submit declaration
+Your software should use the [Customs Declarations API]((/api-documentation/docs/api/service/customs-declarations)) to do this - specifically the [Submit a customs declaration](/api-documentation/docs/api/service/customs-declarations/1.0#_submit-a-customs-declaration_post_accordion) endpoint.
 
-### Submit a pre-lodged inventory linked declaration
-The initial API call is step 1b where the CSP’s application calls the CDS API. As with the previous example, this is the point at which the CDS authentication mechanism is able to identify the application making the API call – and to associate the transaction with that application.
-Later in the declaration workflow (step 3, after validation of the declaration) CDS sends a Validate Movement Request for processing by the CSP’s inventory linking system.
+If you are a CSP you must identify the originating party of the declaration.
 
-- Where step 3 is using a push notification, the CDS system will use the identity of the application from step 1b to determine the relevant subscription – and hence the destination URL for the push delivery
-- Where step 3 is using a pull notification, the CDS system will store the message locally and wait for the agent’s or declarant’s software to retrieve it
+### Receive response
+You will receive a synchronous response confirming that your declaration has been received.
 
-<img src="figures/Submit-Prelodge1.png"/>
+This response will include a Conversation ID that you can use to identify notifications for your declaration.
 
-Other use cases are described in [CDS 10 End to End Sequence Diagrams v2.5](figures/CDS%2010%20End%20to%20End%20Sequence%20Diagrams%20v2.5%20180721%20BW.pdf)
+After a short time one or more notifications related to your declaration will be generated.
+
+### Receive notifications related to declaration
+How you receive notifications depends on whether you have set up Push or Pull notifications for your subscription to the [Customs Declarations API]((/api-documentation/docs/api/service/customs-declarations)).
+
+If your subscription has a callback URL then you will receive a Push notification.
+
+Otherwise you can use the Pull notification API to [get unpulled notifications for the Conversation ID received](/api-documentation/docs/api/service/api-notification-pull/1.0#_get-all-notifications-for-a-conversation_get_accordion).
+
+Notifications will include a unique identifier for the declaration assigned by CDS.
+
+If the declaration is Accepted you will receive a DMSACC notification.
+
+If the declaration is Rejected you will receive a DMSREJ notification.
+
+If you need to supply supporting documents you will receive a DMSDOC notification.
