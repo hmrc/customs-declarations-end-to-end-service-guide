@@ -3,18 +3,12 @@ title: Set up | Customs Declarations End-to-End Service Guide
 weight: 2
 ---
 
-# Set up
+# Set up for Developers
 
 ## Notifications
-### Defining use of notifications
-Part of an application’s subscription to an API, defines how notifications from the API will be delivered to that particular application.
-All of the CDS APIs offer push and pull notifications. The details of each application’s subscription determines which mechanism (push or pull) is used for each application.
+Part of an application’s subscription to an API defines how notifications from the API will be delivered to that particular application.
+All of the CDS APIs offer push and pull notifications.
 
-If the application’s subscription specifies a push notification callback URL, that will indicate that the API should use push notifications for that application – and should send those notifications to the supplied URL.
-
-If the application’s subscription omits a callback URL, that will indicate to the API that pull notifications should be used with that application.
-
-### Receive a Notification
 **Push notifications**
 
 -	The push notification mechanism sends notifications out to the trade system as those notifications become available. i.e. CDS ‘pushes’ notifications as they are generated, and the trade system needs to be constantly ready to receive them
@@ -35,6 +29,12 @@ If the application’s subscription omits a callback URL, that will indicate to 
 ## API Subscription Model
 ### Application Subscription
 Applications produced by external developers must subscribe to all of the CDS APIs that they intend to use. A subscription to an API will permit the subscribing application to access the endpoints within that API. An application may subscribe to a single API or to multiple APIs.
+
+The details of each application’s subscription determines which mechanism (push or pull) is used for each application.
+
+If the application’s subscription specifies a push notification callback URL, that will indicate that the API should use push notifications for that application – and should send those notifications to the supplied URL.
+
+If the application’s subscription omits a callback URL, that will indicate to the API that pull notifications should be used with that application.
 
 Each subscription uniquely links a single external application (typically a trade system) to a single CDS API, and records the information associated with that unique logical link.
 
@@ -61,7 +61,7 @@ In this example, the trade application uses pull notifications for API1 since no
 <img src="figures/Mixed-Not1.png"/>
 
 ### Mixed API notifications
-An single API may use different notification models for different application subscriptions.
+A single API may use different notification models for different application subscriptions.
 In this example, two separate applications (ABC Trading & XYZ Imports) have subscribed to the same CDS API.
 The ABC Trading application has not defined a callback URL and will therefore use pull notifications. The XYZ Imports application is using push notifications, sent to the supplied callback URL:
 
