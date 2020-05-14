@@ -6,45 +6,33 @@ description: Software developers, designers, product owners or business analysts
 
 # Customs Declaration Service end-to-end service guide
 
-
-This service guide explains how you can integrate your software with our APIs to help complete and submit Customs Declarations.
-
-It shows how the APIs fit into various end-to-end user journeys.
+This service guide has been created for developers working for Community System Providers (CSPs), software houses and traders. It explains how you can integrate your software with HMRC’s APIs to help complete and submit customs declarations.
 
 ## Overview
-Customs Declarations Service (CDS) is replacing the Customs Handling of Import and Export Freight (CHIEF) with a modern and flexible system that can handle anticipated future import and export growth.
+The Customs Declaration Service (CDS) is replacing the Customs Handling of Import and Export Freight (CHIEF) with a modern and flexible system that can handle anticipated future import and export growth.
 
-[More information about the Customs Declaration Service (opens in a new tab)](https://www.gov.uk/government/collections/customs-handling-of-import-and-export-freight-chief-replacement-programme).
+[More information about the Customs Declaration Service](https://www.gov.uk/government/collections/customs-handling-of-import-and-export-freight-chief-replacement-programme).
 
-What you need to do to get ready for the CDS will depend on how you currently make declarations using CHIEF.
+What traders need to do to get ready for CDS will depend on how they currently make declarations using CHIEF.
 
-[How to prepare for the Customs Declaration Service (opens in a new tab)](https://www.gov.uk/guidance/how-hmrc-will-introduce-the-customs-declaration-service).
+[How to prepare for the Customs Declaration Service](https://www.gov.uk/guidance/how-hmrc-will-introduce-the-customs-declaration-service).
 
-For users who import or export outside of the European Union, there will be differences in the information they need to put in their declarations. This is due to changes to the [UK Trade Tariff (opens in a new tab)](https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-cds) required by the Union Customs Code.
+For traders who import or export outside of the European Union, there will be differences in the information they need to put in their declarations. This is due to changes to the [UK Trade Tariff](https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-cds) required by the Union Customs Code.
 
-It is possible to complete and submit Customs Declarations using commercial software. To support this, we provide APIs to enable your application to:
-
-- Make a customs declaration
-- Receive business event notifications generated from requests submitted via the CDS APIs
+## Before you can use these APIs
 
 To use these APIs you must:
 
--	[Have an appropriate HMRC online account (opens in a new tab)](https://www.gov.uk/log-in-register-hmrc-online-services).
--	[Have an Economic Operator Registration and Identification (EORI) number (opens in a new tab)](https://www.gov.uk/eori).
--	Be registered for CDS
--	Have a working understanding of HTTP
--	Have a working understanding of OAuth2
--	Have a working knowledge of RESTful services
--	Have a working knowledge of XML
+-	be registered for CDS
+-	[have an Economic Operator Registration and Identification (EORI) number](https://www.gov.uk/eori).
+-	be familiar with HTTP, RESTful services, XML and OAuth2
 
-Some APIs are restricted to Community System Providers (CSPs) (5 companies - large operators who own most of the major ports)
-CSPs have relationship with CHIEF – inventory linking (port to HMRC).
+Some APIs can only be used by Community System Providers (CSPs).
 
 ## End-to-end user journeys
 These journeys show examples of use. Journeys for software houses and traders are broken down into:<br>
 
-* [CDS set up activities for Developers](documentation/set-up-developers.html#set-up-for-developers)
-* [CDS set up activities for Traders](documentation/set-up-traders.html#set-up-for-traders)
+* [developers set up activities](documentation/set-up-developers.html#set-up-for-developers)
 * [submitting customs declarations](documentation/submit-customs-declarations.html#submit-a-customs-declaration) 
 
 ## Related API documentation
