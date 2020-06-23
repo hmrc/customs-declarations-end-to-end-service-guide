@@ -1,5 +1,5 @@
 ---
-title: Submitting Customs Declarations | Customs Declarations End-to-End Service Guide
+title: Submitting customs declarations | Customs Declarations End-to-End Service Guide
 weight: 3
 ---
 
@@ -7,7 +7,7 @@ weight: 3
 
 For both import and export declarations.
 
-When you bring goods into the UK you must make a full declaration unless you are authorised and can use simplified declarations.
+When you bring goods into the UK you must make a full declaration unless you are authorised to use simplified declarations.
 
 
 ## Submit new declaration
@@ -35,18 +35,18 @@ This response will include a Conversation ID that you can use to identify notifi
 ### 3. Receive notifications related to declaration
 After a short time one or more notifications related to your declaration will be generated.
 
-How you receive notifications depends on whether you have set up [push or pull notifications](/documentation/set-up-developers.html#notifications) for your subscription to the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations).
+How you receive notifications depends on whether you have set up [push or pull notifications](/documentation/notifications.html) for your subscription to the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations).
 
-The exact message flow and types of notifications that you can expect to receive during the declaration’s life cycle depends on the type of declaration you are submitting. A detailed explanation of all the different declaration types and their process flow can be found in the [CDS 10 End to End Sequence Diagrams document](documentation/resources/CDS 10 End to End Sequence Diagrams v5.2 20200409.docx).
+The exact message flow and types of notifications that you can expect to receive during the declaration’s life cycle depends on the type of declaration you are submitting. A detailed explanation of all the different declaration types and their process flow can be found in the [CDS 10 End to End Sequence Diagrams document](/documentation/resources/CDS 10 End to End Sequence Diagrams v5.2 20200409.docx).
 
 
 ## Amend a submitted customs declaration
 
-CDS allows the submission of declaration amendments into the service, which will cause a re-validation of the declaration. 
+CDS allows the submission of declaration amendments which will cause a re-validation of the declaration. 
 
-Your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this, specifically the [Submit a Customs Amend Declaration endpoint](/api-documentation/docs/api/service/customs-declarations/2.0#_submit-a-customs-amend-declaration_post_accordion).
+Your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this, specifically the [Submit a Customs Amend Declaration endpoint](/api-documentation/docs/api/service/customs-declarations#_submit-a-customs-amend-declaration_post_accordion).
 
-Amending a declaration follows a similar process to submitting. The exact message flow and types of notifications that you can expect to receive after an amendment depends on the type of declaration you are amending. A detailed explanation of all the different declaration types and their process flow can be found in the [CDS 10 End to End Sequence Diagrams document](documentation/resources/CDS 10 End to End Sequence Diagrams v5.2 20200409.docx).
+Amending a declaration follows a similar process to submitting. The exact message flow and types of notifications that you can expect to receive after an amendment depends on the type of declaration you are amending. A detailed explanation of all the different declaration types and their process flow can be found in the [CDS 10 End to End Sequence Diagrams document](/documentation/resources/CDS 10 End to End Sequence Diagrams v5.2 20200409.docx).
 
 
 ## Cancel a submitted customs declaration

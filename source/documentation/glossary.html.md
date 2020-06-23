@@ -7,15 +7,15 @@ weight: 9
 
 ##Office of Entry
 
-An ‘Office of Entry’ is a location into which goods arrive in the UK. There are two types:
+An ‘Office of Entry’ is a location into which goods arrive in the UK. There are 2 types:
 - Inventory Linked - where CSPs make the ‘arrival of goods’ notification to customs
-- Non-Inventory Linked - where Traders must make the ‘arrival of goods’ notification to customs themselves
+- Non-Inventory Linked - where traders must make the ‘arrival of goods’ notification to customs themselves
 
 ## Participants
 
 - Declarant - the owning person/company responsible for make a declaration
 - Submitter - an individual trader, authorised agent or CSP that electronically submits a declaration to CDS via the APIs 
-- CSP - Community System Provider control the major Office of Entry for goods into the UK
+- CSP - Community System Provider, they control the major Office of Entry for goods into the UK
 
 ## Declaration Types:
 - Import - Full Declarations
@@ -28,10 +28,10 @@ An ‘Office of Entry’ is a location into which goods arrive in the UK. There 
 - Arrived Declaration - A import declaration made after the goods arrive in the UK (held by customs)
  
 ## UCRs
-Unique Consignment References are a unique identifier for ‘packages’ and/or ‘containers’ in which goods are transported. There are two types of UCRs which are:
+Unique Consignment References are a unique identifier for ‘packages’ and/or ‘containers’ in which goods are transported. There are 2 types of UCRs which are:
 
-- Declaration (DUCRs) - assigned by the declarant to uniquely identify a single consignment of goods which is the subject of one or more customs declarations. 
-- Master (MUCRs) - used to group or ‘link’ several other UCRs under a master UCR (MUCR).
+- Declaration (DUCRs) - assigned by the declarant to uniquely identify a single consignment of goods which is the subject of one or more customs declarations 
+- Master (MUCRs) - used to group or ‘link’ several other UCRs under a master UCR (MUCR)
 
 ![UCR Relationship](resources/UCR_Relationship.png)
 
@@ -46,12 +46,12 @@ The Local Reference Number (LRN) defined by the declarant and submitted in Data 
 A Movement Reference Number (MRN) is a globally unique identifier for a declaration assigned by CDS once a declaration is submitted.
 
 ## Inventory Reference 
-Is only used for import declarations and is the same as a MUCR
+This is only used for import declarations and is the same as a MUCR.
 
 ## ICR
 Inventory consignment reference. The CSP inventory system consignment is linked with CDS by ICRs, which will be cross-referenced against the declaration and used to identify the consignment and declaration in subsequent messages between CDS and the CSP inventory system.
 
-The ICR is declared as the master unique consignment reference (MUCR) 
+The ICR is declared as the master unique consignment reference (MUCR).
 
 ## ROE
 Route of examination codes:

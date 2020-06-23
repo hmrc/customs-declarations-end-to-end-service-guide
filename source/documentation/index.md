@@ -22,7 +22,7 @@ For imports or exports outside outside of the European Union, there will be diff
 These journeys show examples of use. 
 
 * [developers set up](documentation/set-up-developers.html#set-up-for-developers)
-* [submitting customs declarations](documentation/submit-customs-declarations.html#submit-a-customs-declaration)
+* [submitting customs declarations](documentation/submitting-customs-declarations.html#submit-a-customs-declaration)
 * [receiving notifications](documentation/notifications.html)  
 * [uploading supporting documentation](documentation/uploading-supporting-documents.html)
 * [query declaration status](documentation/query-declaration-status.html)   
