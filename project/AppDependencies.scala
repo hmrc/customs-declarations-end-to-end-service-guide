@@ -3,7 +3,7 @@ import play.sbt.PlayImport._
 import sbt._
 
 object AppDependencies {
-  val bootStrapPlayVersion = "4.12.0"
+  val bootStrapPlayVersion = "5.3.0"
 
   val compile = Seq(
     ws,
@@ -11,5 +11,5 @@ object AppDependencies {
 
   val test = Seq(
     "org.pegdown" % "pegdown" % "1.6.0" % "test",
-    "org.scalatest" %% "scalatest" % "3.0.5" % "test")
+    "org.scalatest" %% "scalatest" % "3.2.0" % "test")
 }
