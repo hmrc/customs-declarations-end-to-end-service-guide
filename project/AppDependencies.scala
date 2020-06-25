@@ -1,13 +1,12 @@
-import play.core.PlayVersion
 import play.sbt.PlayImport._
 import sbt._
 
 object AppDependencies {
-  val bootStrapPlayVersion = "5.3.0"
+  val bootStrapPlayVersion = "1.10.0"
 
   val compile = Seq(
     ws,
-    "uk.gov.hmrc" %% "bootstrap-play-25" % bootStrapPlayVersion)
+    "uk.gov.hmrc" %% "bootstrap-play-26" % bootStrapPlayVersion)
 
   val test = Seq(
     "com.vladsch.flexmark" % "flexmark-all" % "0.35.10" % Test,
