@@ -11,27 +11,26 @@ To develop using these APIs you must:
 -	be registered as a developer on the [HMRC Developer Hub] (/)
 -	add at least one sandbox application on the Developer Hub
 
-Some APIs can only be used by Community System Providers (CSPs).
-
-To develop using these APIs you must:
-
-- be registered as a developer on the [HMRC Developer Hub](/)
-- add at least one sandbox application on the Developer Hub
-
 Each application you register will be assigned an HMRC ‘ApplicationId’.
 
-You can view all the applications you have registered on the [Developer Hub Applications page](/developer/applications).
+You can view all the applications you have registered on the [Developer Hub Applications page](/developer/applications) where you can administer things like API subscriptions and [application credentials](/api-documentation/docs/authorisation/credentials).
 
-There are 2 types of Developer Hub applications:
+Applications can be created in one of 2 possible environments:
 
-- sandbox - you start your development with these
-- production - when you are ready to go live you can request 'Production Credentials' that will create you a new production application (with a new ‘ApplicationId’) in the live environment
+- sandbox environment - where you start development and testing of your software
+- production environment - when you are ready to go live you can request 'Production Credentials' that will create you a new application (with a new ‘ApplicationId’) in the production environment
+
+The main differences between these 2 environments is that in the sandbox environment you will [create and use test users](/api-documentation/docs/testing/test-users-test-data-stateful-behaviour) to call the endpoints, and the release versions of CDS APIs in the sandbox will generally be ahead of those in production.
+ 
+[Please see here for more details about getting started using the sandbox environment.](/api-documentation/docs/testing) 
+
+There is also a program called ‘Trader Dress Rehearsal’ that operates inside the sandbox that is designed for you to trial your software with real declarants in a ‘production like’ environment. For more details on joining this program please contact [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk).
 
 
 ## API subscription model
 
-You must subscribe each application to the [CDS APIs](/api-documentation/docs/api) that they intend to use. 
-Subscribing allows an application access to all of the endpoints of an API. An application may utilise as many APIs as required, but each application-API pairing must have its own subscription enabled.
+You must subscribe each application you register to the [CDS APIs](/api-documentation/docs/api) that they intend to use. 
+Subscribing allows an application access to all of the endpoints of a particular API-version. An application may subscribe to as many APIs as required, but each 'application => API-version' pairing must have its own subscription enabled.
 
 
 ## API access control
@@ -41,26 +40,67 @@ Some of the CDS APIs (and their documentation) are only accessible to applicatio
 
 ## API versioning
 
-In the production environment there is only one version of each CDS API (version 1.0).
-In the sandbox environment however there may be more than one version of a particular API, made available for the purposes of testing new pre-release features and endpoints.  
+When calling a CDS endpoint you specify the version of the API you wish to use by specifying it in the ‘Accept’ request header of your request (see the specific [API documentation](/documentation/set-up-developers.html#related-api-documentation) for more details on request header values).
+
+In the production environment there is only one version available of each of the CDS APIs (version 1.0).
+
+In the sandbox environment however there may be 2 versions available  of a particular API, one for standard development known as ‘Trade Test’ and another version that more closely mirrors the production environment known as ‘Trader Dress Rehearsal’.  
+
+Here is a breakdown of the CDS APIs with the versions of each that relate to ‘Trade Test’ and ‘Trader Dress Rehearsal’ respectively:
+
+<table>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr>
+    <td><strong>API Service</strong></td>
+    <td><strong>Trade Test</strong></td>
+    <td><strong>Trader Dress Rehearsal</strong></td>
+  </tr>
+  <tr>
+    <td>Customs Declarations API</td>
+    <td>v 2.0</td>
+    <td>v 1.0</td>
+  </tr>
+  <tr>
+    <td>Customs Declarations Information API</td>
+    <td>v 1.0</td>
+    <td>v 2.0</td>
+  </tr>
+  <tr>
+    <td>Customs Inventory Linking Exports API</td>
+    <td>v 1.0</td>
+    <td>v 2.0</td>
+  </tr>
+  <tr>
+    <td>Customs Inventory Linking Imports API</td>
+    <td>v 1.0</td>
+    <td>v 2.0</td>
+  </tr>
+</table>  
+</br>
+
 For your application to be able to call a particular version of an API you must: 
 
 -	ensure that your application has access to it (by checking that the version is visible to you on the API’s documentation page)
--	[subscribe your application](/documentation/set-up-developers.html#api-subscription-model) to it (in addition to any other subscriptions you have for different versions)
+-	[subscribe your application](/documentation/set-up-developers.html#api-subscription-model) to it (in addition to any other subscriptions you may already have for other versions)
 -	modify your application’s ‘Accept’ request header value when making a call to the API to reflect the version you wish to use (see the specific [API documentation](/documentation/set-up-developers.html#related-api-documentation) for more details on request header values)
 
-If a version of an API is not visible on the documentation page then you may need to request to be whitelisted by [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk). 
+If a version of an API is not visible on the documentation page then you may need to request your application to be whitelisted by [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk). 
 
 
 ## API rate limiting
 
+To maintain good availability for every user across all our services, HMRC imposes API call rate limits on a per application basis. Each [application that you register](/developer/applications) will have its own API call quota (measured as ‘X’ calls per minute). Every request made by an application to any endpoint of any API-version will count towards this quota.
+
 A description of the HMRC standard rate limits can be found in the [Reference Guide on HMRC’s Developer Hub](/api-documentation/docs/reference-guide#rate-limiting).
 
-Although the standard default rate limit is appropriate for current HMRC services, users of CDS are expected to generate higher volumes of API requests.
+Although the standard default rate limit is appropriate for most other HMRC services, users of CDS are expected to generate higher volumes of API requests.
 
 The existing automated HMRC business processes will still allocate the default rate limit to new subscriptions, but any CDS user will be able to increase their rate limit to 500 requests per minute by simply emailing their request to HMRC [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) (including the name and ID of the applications requiring the higher limit).
 
-As with the default limit this higher limit of 500 request per minute for CDS users is still seen as a starting point. If testing identifies a need for a higher limit further increases can be requested via the online request process.
+As with the default limit this higher limit of 500 requests per minute for CDS users is still seen as a starting point. If testing identifies a need for a higher limit further increases can be requested via the online request process.
+
+If you intend to serve multiple different declarants with your software, it is recommended to register a new application with HMRC per declarant. Otherwise one declarant may adversely impact on the others by exceeding the rate limit for your single application.
+
 
 ## Related API documentation
 
@@ -78,7 +118,9 @@ If you cannot access any of the following API documentation please email with [S
 
 ###Declarants and authorized agents 
 
-The end user authenticates directly with us using their Government Gateway account, and grants authority to your software for specific scopes. We then issue an OAuth 2.0 ‘access_token’ that is specific to the end user. Your application passes the access token in subsequent API requests to user-restricted API endpoints. A user ‘access_token’ expires after 4 hours and will need to be refreshed.
+The declarant authenticates directly with us using their Government Gateway account, and grants authority to your application for specific scopes. 
+We then issue an OAuth 2.0 ‘access_token’ that is specific to that declarant. Your application passes the 'access token' in subsequent API requests to user-restricted API endpoints. 
+A declarant ‘access_token’ expires after 4 hours and will need to be refreshed.
 
 Full details and examples can be found on the [HMRC Developer Hub](/)
 

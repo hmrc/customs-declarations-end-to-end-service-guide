@@ -7,7 +7,7 @@ weight: 6
 
 Submit an XML request for the consolidation, movement or querying of consignments for the purposes of inventory linking:
 
-- Consolidation - enables the combining of consignments into one master consignment, or splitting into multiple consignments
+- Consolidation - enables the combining of multiple consignments into one master consignment, or splitting one consignment into multiple consignments
 - Movement - records the movement of consignments within Customs controlled storage facilities (for designated ‘Loaders’ only)
 - Query - the querying of data held within the Inventory Linking Export database
 
