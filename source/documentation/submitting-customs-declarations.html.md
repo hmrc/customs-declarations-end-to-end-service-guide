@@ -54,6 +54,6 @@ Amending a declaration follows a similar process to submitting. The exact messag
 
 ## Cancel a submitted customs declaration
 
-To cancel (also known as invalidate) a submitted declaration your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this, specifically the [Submit a cancellation](/documentation/submitting-customs-declarations.html#cancel-a-submitted-customs-declaration) request endpoint.
+To cancel (also known as invalidate) a submitted declaration your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this, specifically the [Submit a cancellation](/api-documentation/docs/api/service/customs-declarations#_submit-a-cancellation-request_post_accordion) request endpoint.
 
 The exact message flow can be found in the [CDS 10 End to End Sequence Diagrams document](/documentation/resources/CDS 10 End to End Sequence Diagrams v5.2 20200409.docx)
