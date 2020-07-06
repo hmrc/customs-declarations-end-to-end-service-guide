@@ -16,7 +16,7 @@ Communication Sequence Diagram
 
 ![Comm](/documentation/resources/File_Upload_Sequence_Diagram.png)
 
-1. Make a customs-declaration api upload initiate request specifying the number of files you want to upload.
+1. Make a customs-declaration api [upload initiate request](/api-documentation/docs/api/service/customs-declarations#_submit-an-upload-initiate-request_post_accordion) specifying the number of files you want to upload.
 2. Receive back a collection of AWS S3 upload urls (one per file) in the response. 
 3. For each AWS S3 url upload the desired file. 
 4. For every file uploaded to the AWS S3 bucket CDS will perform a number of validation checks such as virus scanning. CDS will then generate a notification for your application to indicate either a success or failure in accepting the uploaded file.

@@ -24,18 +24,21 @@ The submitter of a declaration can be:
 ### 1. Submit declaration
 Your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this - specifically the [Submit a customs declaration](/api-documentation/docs/api/service/customs-declarations/1.0#_submit-a-customs-declaration_post_accordion) endpoint.
 
-If you are a CSP you must identify the originating party of the declaration.
+If you are a CSP you must identify the submitter of the declaration (the declarant) in your requests by supplying their EORI in the ‘X-Submitter-Identifier’ header field or, when their EORI is not known, the declarant's Badge ID as its value.
+
+As a CSP you may also, if desired, include an ‘X-Badge-Identifier’ header field that contains the declarant’s Badge ID value. If provided, this value will then be included in any subsequent response back to the CSP from CDS about that particular declaration
+
 
 ### 2. Receive response
 You will receive a synchronous response confirming that your declaration has been received.
 
-This response will include a Conversation ID that you can use to identify notifications for your declaration.
+This response will include a Conversation ID that you can use to identify notifications that correspond to this particular declaration.
 
 
 ### 3. Receive notifications related to declaration
 After a short time one or more notifications related to your declaration will be generated.
 
-How you receive notifications depends on whether you have set up [push or pull notifications](/documentation/notifications.html) for your subscription to the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations).
+How you receive [notifications](/documentation/notifications.html) depends on whether you have set up [push](/documentation/notifications.html#push-notifications) or [pull](/documentation/notifications.html#pull-notifications) notifications for your subscription to the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations).
 
 The exact message flow and types of notifications that you can expect to receive during the declaration’s life cycle depends on the type of declaration you are submitting. A detailed explanation of all the different declaration types and their process flow can be found in the [CDS 10 End to End Sequence Diagrams document](/documentation/resources/CDS 10 End to End Sequence Diagrams v5.2 20200409.docx).
 
@@ -51,6 +54,6 @@ Amending a declaration follows a similar process to submitting. The exact messag
 
 ## Cancel a submitted customs declaration
 
-To cancel (also known as invalidate) a submitted declaration your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this, specifically the Submit a cancellation request endpoint.
+To cancel (also known as invalidate) a submitted declaration your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this, specifically the [Submit a cancellation](/documentation/submitting-customs-declarations.html#cancel-a-submitted-customs-declaration) request endpoint.
 
 The exact message flow can be found in the [CDS 10 End to End Sequence Diagrams document](/documentation/resources/CDS 10 End to End Sequence Diagrams v5.2 20200409.docx)
