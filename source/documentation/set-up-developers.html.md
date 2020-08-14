@@ -35,7 +35,7 @@ Subscribing allows an application access to all of the endpoints of a particular
 
 ## API access control
 
-Some of the CDS APIs (and their documentation) are only accessible to applications that have been whitelisted for that API. If you cannot subscribe to or access the documentation of a particular API on the developer hub, please check with [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) if your ‘ApplicationId’ needs to be added to the whitelist for that API.
+Some of the CDS APIs (and their documentation) are only accessible to applications that have been placed in the allow list for that API. If you cannot subscribe to or access the documentation of a particular API on the developer hub, please check with [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) if your ‘ApplicationId’ needs to be added to the allow list for that API.
 
 
 ## API versioning
@@ -84,7 +84,7 @@ For your application to be able to call a particular version of an API you must:
 -	[subscribe your application](/documentation/set-up-developers.html#api-subscription-model) to it (in addition to any other subscriptions you may already have for other versions)
 -	modify your application’s ‘Accept’ request header value when making a call to the API to reflect the version you wish to use (see the specific [API documentation](/documentation/set-up-developers.html#related-api-documentation) for more details on request header values)
 
-If a version of an API is not visible on the documentation page then you may need to request your application to be whitelisted by [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk). 
+If a version of an API is not visible on the documentation page then you may need to request your application to be placed in the allow list by [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk). 
 
 
 ## API rate limiting
@@ -104,7 +104,7 @@ If you intend to serve multiple different declarants with your software, it is r
 
 ## Related API documentation
 
-If you cannot access any of the following API documentation please email with [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) to check if your ‘ApplicationId’ needs to be [added to the whitelist](/documentation/set-up-developers.html#api-access-control) for that API:
+If you cannot access any of the following API documentation please email with [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) to check if your ‘ApplicationId’ needs to be [added to the allow list](/documentation/set-up-developers.html#api-access-control) for that API:
 
 - [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) - lets you submit, amend and cancel a customs declaration, and provides the ability to upload supporting documents and make arrival notifications 
 - [Customs Declarations Information API](/api-documentation/docs/api/service/customs-declarations-information) - lets you query the status of submitted customs declarations
