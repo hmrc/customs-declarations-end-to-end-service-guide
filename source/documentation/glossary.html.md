@@ -246,8 +246,4 @@ Unique Consignment References are a unique identifier for ‘packages’ and/or 
 - Declaration (DUCRs) - assigned by the declarant to uniquely identify a single consignment of goods which is the subject of one or more customs declarations 
 - Master (MUCRs) - used to group or ‘link’ several other UCRs under a master UCR (MUCR)
 
-![UCR Relationship](/documentation/resources/UCR_Relationship.png)
-
 You can think of a MUCR as ‘containing’ its child UCRs. A MUCR can contain both DUCRs and potentially other MUCRs (in a nested structure up to seven levels deep). The nested nature of MUCRs means that all MCUR will have 1..n child UCRs and 0..1 parent MUCR. 
-
-![UCR Linking Diagram](/documentation/resources/UCR_Linking_Diagram.png)
