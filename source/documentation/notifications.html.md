@@ -215,10 +215,9 @@ Notification messages are XML documents. Their schema definitions and examples o
 New versions of the schema and sample messages are released first into the sandbox environment and released into the production environment at a later date. Please click on the links below for the desired target environment:
 
 - sandbox environment
- - [wco declaration schema](/documentation/resources/sandbox/wco-declaration-schemas.zip)
- - [annotated XML samples](/documentation/resources/sandbox/CDS Annotated XML Samples_20200528.zip)
- 
+ - [wco declaration schemas and annotated XML samples](/documentation/resources/sandbox/wco-declaration-schemas.zip)
+
  
 - production environment
- - [wco declaration schema](/documentation/resources/production/wco-declaration-schemas.zip)
- - [annotated XML samples](/documentation/resources/production/CDS Annotated XML Samples_20200528.zip)
+ - [wco declaration schemas and annotated XML samples](/documentation/resources/production/wco-declaration-schemas.zip)
+ 
