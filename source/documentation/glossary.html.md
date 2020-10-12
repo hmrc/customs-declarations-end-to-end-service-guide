@@ -5,15 +5,21 @@ weight: 9
 
 # Glossary
 
-## Declaration Types:
-- Import - Full Declarations
-- Import - Simplified, Supplementary and Final Supplementary Declarations
-- Export - Full Declarations
-- Export - Simplified and Supplementary Declarations
+## Import Declaration Types:
+
+- full
+- simplified
+- supplementary
+- final supplementary
+- pre-lodged - made before the goods arrive in the UK
+- arrived - made after the goods arrive in the UK (held by customs)
 
 
-- Pre-lodged Declarations - A import declaration made before the goods arrive in the UK
-- Arrived Declaration - A import declaration made after the goods arrive in the UK (held by customs)
+## Export Declaration Types:
+
+- full
+- simplified
+- supplementary
 
 
 ## EORI 
