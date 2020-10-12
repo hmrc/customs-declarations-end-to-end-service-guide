@@ -5,8 +5,6 @@ weight: 3
 
 # Submitting customs declarations
 
-For both import and export declarations.
-
 When you bring goods into the UK you must make a full declaration unless you are authorised to use simplified declarations.
 
 
@@ -22,9 +20,9 @@ The submitter of a declaration can be:
 ### 1. Submit declaration
 Your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this - specifically the [Submit a customs declaration](/api-documentation/docs/api/service/customs-declarations/1.0#_submit-a-customs-declaration_post_accordion) endpoint.
 
-If you are a CSP you must identify the submitter of the declaration (the declarant) in your requests by supplying their EORI in the ‘X-Submitter-Identifier’ header field or, when their EORI is not known, the declarant's Badge ID as its value.
+If you are a CSP you must identify the submitter of the declaration (the declarant) in your requests by supplying their EORI in the ‘X-Submitter-Identifier’ header field.
 
-As a CSP you may also, if desired, include an ‘X-Badge-Identifier’ header field that contains the declarant’s Badge ID value. If provided, this value will then be included in any subsequent response back to the CSP from CDS about that particular declaration
+ As a CSP there is an additional, temporary mechanism to supply declarant identification data. Instead of supplying the declarant EORI, the declarant’s Badge ID may be supplied instead. If both EORI and Badge ID are supplied then the EORI will be used as the declarant identifier. In all cases any Badge ID supplied will be included in any subsequent response back to the CSP from CDS about that particular declaration.
 
 
 ### 2. Receive response

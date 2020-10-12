@@ -212,9 +212,9 @@ For more details about using the API please see the [Pull notifications API docu
 
 Notification messages are XML documents. Their schema definitions and examples of the XML messages can be found below.
 
-New versions of the schema and sample messages are released first into the sandbox environment and released into the production environment at a later date. Please click on the links below for the desired target environment:
+New versions of the schema and sample messages are released first into the sandbox environments and released into the production environment at a later date. Please click on the links below for the desired target environment:
 
-- sandbox environment
+- sandbox environments
  - [wco declaration schemas and annotated XML samples](/documentation/resources/sandbox/wco-declaration-schemas.zip)
 
  

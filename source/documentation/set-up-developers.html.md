@@ -17,14 +17,34 @@ You can view all the applications you have registered on the [Developer Hub Appl
 
 Applications can be created in one of 2 possible environments:
 
-- sandbox environment - where you start development and testing of your software
+- sandbox environments - where you start development and testing of your software
 - production environment - when you are ready to go live you can request 'Production Credentials' that will create you a new application (with a new ‘ApplicationId’) in the production environment
 
-The main differences between these 2 environments is that in the sandbox environment you will [create and use test users](/api-documentation/docs/testing/test-users-test-data-stateful-behaviour) to call the endpoints, and the release versions of CDS APIs in the sandbox will generally be ahead of those in production.
+The main differences between these 2 environments is that in the sandbox environments you will [create and use test users](/api-documentation/docs/testing/test-users-test-data-stateful-behaviour) to call the endpoints, and the release versions of CDS APIs in the sandbox will generally be ahead of those in production.
  
-[Please see here for more details about getting started using the sandbox environment.](/api-documentation/docs/testing) 
+[More details about getting started using the sandbox environments.](/api-documentation/docs/testing) 
 
-There is also a program called ‘Trader Dress Rehearsal’ that operates inside the sandbox that is designed for you to trial your software with real declarants in a ‘production like’ environment. For more details on joining this program please contact [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk).
+The purpose of CDS sandbox (also known as External Test) is to provide an HMRC platform for all external partners (CSPs, SWHs, express operators, and declarants) to complete their required assurance activities so they are confident in their readiness for migration to CDS. The CDS External Test offering has two core services: Trade Test and Trader Dress Rehearsal, which are outlined below.
+
+
+## Trade Test
+
+A functional test platform where 3rd party developers can assure their software integration against CDS APIs and a CDS back-end for all core declaration processes and notification types.
+- Test trader and account data
+- Process all declaration types and procedures
+- Integration testing for all APIs
+- Exports inventory linking, including dual running arrivals via CHIEF (HMUT)
+- Simulated controls, quota, immediate payments services
+
+
+## Trader Dress Rehearsal
+
+A CDS-like service to support declarants in submitting all types of declarations to expose all actors in the supply chain to declaration processing in CDS as part of their final assurance activity prior to migration.
+
+- Live trader and account data
+- Process all declaration types and procedures
+- Integration testing for all APIs
+- Simulated controls, quota, immediate payments services
 
 
 ## API subscription model
@@ -44,7 +64,7 @@ When calling a CDS endpoint you specify the version of the API you wish to use b
 
 In the production environment there is only one version available of each of the CDS APIs (version 1.0).
 
-In the sandbox environment however there may be 2 versions available  of a particular API, one for standard development known as ‘Trade Test’ and another version that more closely mirrors the production environment known as ‘Trader Dress Rehearsal’.  
+In the sandbox environments however there may be 2 versions available  of a particular API, one for standard development known as ‘Trade Test’ and another version that more closely mirrors the production environment known as ‘Trader Dress Rehearsal’.  
 
 Here is a breakdown of the CDS APIs with the versions of each that relate to ‘Trade Test’ and ‘Trader Dress Rehearsal’ respectively:
 
@@ -127,8 +147,8 @@ Full details and examples can be found on the [HMRC Developer Hub](/)
 
 ###Community System Providers
 
-Community System Providers (CSPs) may register privileged applications with HMRC.
+Community System Providers (CSPs) will register privileged applications with HMRC.
 
-Privileged applications do not require each end user to have Government Gateway credentials.
+The CSP system will supply data identifying each declarant during each interaction with CDS.
 
-Following registration, the credentials you are supplied with can be used to generate a Time-based One-Time Password (TOTP) code which is exchanged for an access_token.
+As CSPs are trusted by HMRC their systems will authenticate their own users. This acts a substitute for Government Gateway authentication described above.
