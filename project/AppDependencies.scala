@@ -9,6 +9,6 @@ object AppDependencies {
     "uk.gov.hmrc" %% "bootstrap-frontend-play-27" % bootStrapPlayVersion)
 
   val test = Seq(
-    "com.vladsch.flexmark" % "flexmark-all" % "0.62.2" % Test,
+    "com.vladsch.flexmark" % "flexmark-all" % "0.35.10" % Test,
     "org.scalatest" %% "scalatest" % "3.2.0" % Test)
 }
