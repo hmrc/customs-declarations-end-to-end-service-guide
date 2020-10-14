@@ -1,9 +1,9 @@
 ---
-title: Submitting customs declarations | Customs Declarations End-to-End Service Guide
+title: Submitting import and export customs declarations | Customs Declarations End-to-End Service Guide
 weight: 3
 ---
 
-# Submitting customs declarations
+# Submitting import and export customs declarations
 
 When you bring goods into the UK you must make a full declaration unless you are authorised to use simplified declarations.
 
