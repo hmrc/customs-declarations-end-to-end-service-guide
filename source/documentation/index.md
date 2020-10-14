@@ -29,3 +29,5 @@ These journeys show examples of use.
 * [inventory linking for export declarations](documentation/inventory-linking-export-declarations.html)
 * [making arrival notifications](documentation/arrival-notifications.html)
 * [validating import movements (CSPs only)](documentation/validating-import-movements.html)
+
+Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.
