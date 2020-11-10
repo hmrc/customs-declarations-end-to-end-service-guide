@@ -31,3 +31,18 @@ These journeys show examples of use.
 * [validating import movements (CSPs only)](documentation/validating-import-movements.html)
 
 Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.
+
+### Changelog
+#### Version 0.2
+
+10 November 2020
+
+What changed:
+
+* Added more detail to the file upload section
+
+#### Version 0.1
+
+15 October 2020
+
+* First release
