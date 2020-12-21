@@ -152,3 +152,31 @@ Community System Providers (CSPs) will register privileged applications with HMR
 The CSP system will supply data identifying each declarant during each interaction with CDS.
 
 As CSPs are trusted by HMRC their systems will authenticate their own users. This acts a substitute for Government Gateway authentication described above.
+
+
+##Error Handling Best Practices
+
+No system guarantees 100% error-free performance and CDS is no different.
+
+Services calling CDS need to be designed with failure in mind. There are several strategies to mitigate the errors that do occur.
+
+###5XX errors
+When CDS returns a http response code in the 5XX range the recommended response is to retry. Typically a 500 or 503 are the most likely to be received if there is an issue with CDS. The issue may be transient and hence the recommendation to retry.
+The one exception in this error range is when a 501 (Not Implemented) is returned. This indicates that the endpoint is incorrect. Retrying will not help in this situation. Instead, the url should be checked and fixed.
+
+After multiple attempts, perhaps with an exponential backoff strategy, the expectation is that this will resolve the vast majority of errors. As an example, 3-5 retries over 1-2 minutes would be a reasonable retry strategy.
+Consideration should also be given to using the circuit breaker pattern.
+
+###4XX errors
+If a response code in the 4XX range is received then the API consumer should examine the response payload for more detail on the error before attempting any retry. This error range usually indicates an error with the request. The request should be modified before attempting a retry.
+For example, a 400 (Bad Request) with a payload response message stating “Payload is not valid according to schema” should have it’s request payload modified so it validates against the CDS schemas and then resent.
+Similarly, a 406 (Not Acceptable) indicates that the Accept header is missing or invalid. The request should be amended accordingly.
+
+
+If you are receiving these errors consistently then you should report the problem via the normal routes.
+
+There are many recommendations and plenty of guidance is available on this topic. Some useful resources are listed below -
+ 
+- [5 Pillars of the AWS Well-Architected Framework](https://aws.amazon.com/blogs/apn/the-5-pillars-of-the-aws-well-architected-framework/)
+- [Amazon whitepaper](https://docs.aws.amazon.com/whitepapers/latest/running-containerized-microservices/design-for-failure.html)
+- [Implement resilient applications](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/)

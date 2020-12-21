@@ -33,6 +33,14 @@ These journeys show examples of use.
 Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.
 
 ### Changelog
+#### Version 0.3
+
+21 December 2020
+
+What changed:
+
+* Added error handling section
+
 #### Version 0.2
 
 10 November 2020
