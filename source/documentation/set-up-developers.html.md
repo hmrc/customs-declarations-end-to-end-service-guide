@@ -46,6 +46,16 @@ A CDS-like service to support declarants in submitting all types of declarations
 - Integration testing for all APIs
 - Simulated controls, quota, immediate payments services
 
+## Documentation
+
+The Developer Hub documentation is intended to be a brief technical specification detailing how to submit to CDS. It details the request url, headers and example payloads for each endpoint. Any errors returned by the service are documented here too.
+
+For substantive, detailed information on CDS business processes, technical background papers, design documents, tariff data, xsd schema details and other documents there is a suite of files available on a Google Drive.
+
+As an example, to illustrate the difference, for errors related to a http request to the service then refer to the Developer Hub documentation. For errors related to, for example, declaration rejection codes, then refer to the Google Drive.   
+
+Access to both the Developer Hub, and the Google Drive (contact <SDSTeam@hmrc.gov.uk>) is granted as part of CDS on-boarding.
+
 
 ## API subscription model
 
