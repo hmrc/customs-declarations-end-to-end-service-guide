@@ -18,7 +18,7 @@ The submitter of a declaration can be:
 - a CSP
 
 ### 1. Submit declaration
-Your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this - specifically the [Submit a customs declaration](/api-documentation/docs/api/service/customs-declarations/1.0#_submit-a-customs-declaration_post_accordion) endpoint.
+Your software should use the [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) to do this - specifically the [Submit a customs declaration](/api-documentation/docs/api/service/customs-declarations/#_submit-a-customs-declaration_post_accordion) endpoint.
 
 If you are a CSP you must identify the submitter of the declaration (the declarant) in your requests by supplying their EORI in the ‘X-Submitter-Identifier’ header field.
 
