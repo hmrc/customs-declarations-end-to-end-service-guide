@@ -3,6 +3,8 @@ title: Receiving notifications | Customs Declarations End-to-End Service Guide
 weight: 4
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 #Receiving notifications
 
 ## Notifications

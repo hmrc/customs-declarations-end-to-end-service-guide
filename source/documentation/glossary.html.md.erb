@@ -3,6 +3,8 @@ title: Glossary | Customs Declarations End-to-End Service Guide
 weight: 9
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 # Glossary
 
 ## Import Declaration Types:

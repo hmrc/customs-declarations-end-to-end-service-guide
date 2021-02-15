@@ -3,6 +3,8 @@ title: Uploading supporting documents | Customs Declarations End-to-End Service 
 weight: 5
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 # File Upload Service
 This section describes the technical steps required to send a document to CDS using the file upload API endpoint on the Customs Declaration API. In addition, it outlines the business processes associated with the file upload process to provide the user with an understanding of how this section is linked with declaration processing on CDS.
 

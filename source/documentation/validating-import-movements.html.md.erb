@@ -3,6 +3,8 @@ title: Validate import movements (CSP Only) | Customs Declarations End-to-End Se
 weight: 8
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 # Validate import movements (CSP Only)
 
 Upon receipt of a ‘inventoryLinkingImportValidateMovementRequest’ notification a CSP is required to check whether they can validate that the ICR on the declaration is the same, and check that the number of packages matches against the inventory record. 

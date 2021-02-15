@@ -3,6 +3,8 @@ title: Inventory linking for export declarations | Customs Declarations End-to-E
 weight: 6
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 # Inventory linking for export declarations
 
 Submit an XML request for the consolidation, movement or querying of consignments for the purposes of inventory linking:

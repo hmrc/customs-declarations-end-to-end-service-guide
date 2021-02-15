@@ -3,6 +3,8 @@ title: Submitting import and export customs declarations | Customs Declarations 
 weight: 3
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 # Submitting import and export customs declarations
 
 When you bring goods into the UK you must make a full declaration unless you are authorised to use simplified declarations.
