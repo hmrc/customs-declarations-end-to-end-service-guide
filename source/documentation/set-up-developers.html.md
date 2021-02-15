@@ -3,6 +3,8 @@ title: Developer set up | Customs Declarations End-to-End Service Guide
 weight: 2
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 # Developer set-up
 
 To develop using these APIs you must:

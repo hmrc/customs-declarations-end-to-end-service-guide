@@ -3,6 +3,8 @@ title: Query declaration status | Customs Declarations End-to-End Service Guide
 weight: 5
 ---
 
+<%= partial 'partials/google_tag_manager_js' %>
+
 #Query declaration status
 
 The status of a successfully submitted declaration changes as it progresses through its lifecycle journey. 
