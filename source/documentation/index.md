@@ -33,6 +33,15 @@ These journeys show examples of use.
 Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.
 
 ### Changelog
+#### Version 0.5
+
+18 February 2021
+
+What changed:
+
+* Updated list of permitted file types for the file-upload endpoint
+* Updated the 5XX retry notification interval 
+
 #### Version 0.4
 
 18 January 2021
