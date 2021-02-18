@@ -40,7 +40,7 @@ If CDS fails to deliver a notification (due to the specified callback URL not be
   <tr>
     <td>Callback URL does not respond or responds with a 5XX HTTP code</td>
     <td>
-        CDS will retry to send the failed notification every 30 seconds until successful or until the notification expires (2 weeks from the original date of sending).
+        CDS will retry to send the failed notification every 2&frac12; minutes until successful or until the notification expires (2 weeks from the original date of sending).
         <br><br>
         All other notifications due to be sent through the same subscription channel will be blocked until the issue is resolved. 
     </td>
