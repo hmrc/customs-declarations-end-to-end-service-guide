@@ -121,13 +121,13 @@ If a version of an API is not visible on the documentation page then you may nee
 
 ## API rate limiting
 
-To maintain good availability for every user across all our services, HMRC imposes API call rate limits on a per application basis. Each [application that you register](/developer/applications) will have its own API call quota (measured as ‘X’ calls per minute). Every request made by an application to any endpoint of any API-version will count towards this quota.
+To maintain good availability for every user across all our services, HMRC imposes API call rate limits on a per application basis. Each [application that you register](/developer/applications) will have its own API call quota (measured as 3 calls per second). Every request made by an application to any endpoint of any API-version will count towards this quota.
 
 A description of the HMRC standard rate limits can be found in the [Reference Guide on HMRC’s Developer Hub](/api-documentation/docs/reference-guide#rate-limiting).
 
 Although the standard default rate limit is appropriate for most other HMRC services, users of CDS are expected to generate higher volumes of API requests.
 
-The existing automated HMRC business processes will still allocate the default rate limit to new subscriptions, but any CDS user will be able to increase their rate limit to 500 requests per minute by simply emailing their request to HMRC [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) (including the name and ID of the applications requiring the higher limit).
+The existing automated HMRC business processes will still allocate the default rate limit to new subscriptions, but any CDS user will be able to increase their rate limit to 9 requests per second by simply emailing their request to HMRC [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) (including the name and ID of the applications requiring the higher limit).
 
 As with the default limit this higher limit of 500 requests per minute for CDS users is still seen as a starting point. If testing identifies a need for a higher limit further increases can be requested via the online request process.
 
