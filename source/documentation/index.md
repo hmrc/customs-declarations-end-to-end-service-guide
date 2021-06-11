@@ -35,11 +35,16 @@ Note that links in this guide to other CDS APIs (except for Customs Inventory Li
 ### Changelog
 #### Version 0.7
 
-10 June 2021
+11 June 2021
 
 What changed:
 
-* Added Appendix section and added the following documentations: Annex-IV, CDS - Tariff Download Service - Identifying Duty Rates v1.0, Dispatch Data Export XML, DispatchDataExport.xsd, and Tariff Data Export.
+* Added [Appendix section](/documentation/appendix.html) and following documentation:
+  - Annex-IV
+  - CDS - Tariff Download Service - Identifying Duty Rates v1.0
+  - Dispatch Data Export XML
+  - DispatchDataExport.xsd
+  - Tariff Data Export
 
 #### Version 0.6
 
