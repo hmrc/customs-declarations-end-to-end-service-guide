@@ -40,10 +40,10 @@ Note that links in this guide to other CDS APIs (except for Customs Inventory Li
 What changed:
 
 * Added [Appendix section](/documentation/appendix.html) and following documentation:
-  - Annex-IV
+  - Annex-IV-extraction-elements-1.8.5
   - CDS - Tariff Download Service - Identifying Duty Rates v1.0
-  - Dispatch Data Export XML
   - DispatchDataExport.xsd
+  - Dispatch Data Export XML
   - Tariff Data Export
 
 #### Version 0.6
