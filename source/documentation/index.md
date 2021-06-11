@@ -33,6 +33,19 @@ These journeys show examples of use.
 Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.
 
 ### Changelog
+#### Version 0.7
+
+11 June 2021
+
+What changed:
+
+* Added [Appendix section](/documentation/appendix.html) and following documentation:
+  - Annex-IV-extraction-elements-1.8.5
+  - CDS - Tariff Download Service - Identifying Duty Rates v1.0
+  - DispatchDataExport.xsd
+  - Dispatch Data Export XML
+  - Tariff Data Export
+
 #### Version 0.6
 
 5 March 2021
