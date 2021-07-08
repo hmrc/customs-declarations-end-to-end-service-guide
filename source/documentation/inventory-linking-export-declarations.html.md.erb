@@ -25,6 +25,11 @@ CDS will accept the following message to the [API endpoint](/api-documentation/d
 - associating, splitting, and shutting (EAC (Export Associate Consignment)) 
 - shutting (CST (Consolidation Shut Transaction)) of consignments
 
+Note - Only DUCRs with a SOE value of 4 or 6 will be auto-disassociated if a MUCR is
+rejected.  For other SOEs this disassociation will not occur automatically to allow for goods
+to be physically removed from the consignment.
+
+
 ##Movement of goods
 CDS will accept a message to the [API endpoint](/api-documentation/docs/api/service/customs-inventory-linking-exports) (from authorised commercial entities designated as ‘Loaders’) relating to the following status of the goods:
 
