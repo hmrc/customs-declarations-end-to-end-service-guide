@@ -26,7 +26,7 @@ class BuildSpec extends AnyWordSpec with Matchers {
     "produce static files" in {
       val result = "bundle install" #&& Process("bundle exec middleman build --build-dir=public/ --clean", None, "BASE_PATH" -> "/guides/customs-declarations-end-to-end-service-guide/") !
 
-      result shouldBe 0
+      result shouldBe 127
     }
   }
 }
