@@ -33,6 +33,15 @@ These journeys show examples of use.
 Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.
 
 ### Changelog
+
+#### Version 0.8 
+
+14 September 2021
+
+What changed:
+
+* Added document The Path To Production.pdf
+
 #### Version 0.7
 
 11 June 2021
