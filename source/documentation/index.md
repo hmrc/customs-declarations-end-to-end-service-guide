@@ -101,3 +101,26 @@ What changed:
 15 October 2020
 
 * First release
+
+## Technical Documentation
+This area houses the latest versions of documentation issued to CSPs and SWDs, detailing CDS functionality and how to develop for the service. The following documentation will include:
+
+* Technical Documentation: Documentation and specifications that provide guidance on how to develop for CDS
+* CSP Only Technical Documentation: CSP only documentation and specifications that provide guidance on how to develop for CDS
+* Policy Documentation: CDS Tariff ("Paper" tariff) which provides guidance on how to complete a policy-compliant declaration
+* Trade Test Business Documentation: Documentation issued specifically for Trade Test, on the scope and functionality available in the trade test
+* Sample XMLs: Example XML messages that can be submitted by SWDs and CSPs to test the functionality available in Trade Test
+  
+  Documentation will be updated periodically, with communications being distributed by the Software Developer Support Team to inform users of any changes.
+  The latest version of all documentation can be found in the zip file below.
+  
+Please click on the link below to download the zip file:
+
+ <p class="govuk-body-l" style="font-size: 24px;">
+   <a href="./documentation/resources/CDS-Technical-Documentation-TTM17.0.0.zip" class="govuk-link">CDS Technical Documentation TTM17.0.0</a>
+ </p>
+
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 20.5MB</p>
+
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The ZIP file contains Office files (docx, pptx, xlsx). Open in your preferred application.</p>
+ 
