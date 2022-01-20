@@ -117,10 +117,10 @@ This area houses the latest versions of documentation issued to CSPs and SWDs, d
 Please click on the link below to download the zip file:
 
  <p class="govuk-body-l" style="font-size: 24px;">
-   <a href="./documentation/resources/CDS-Technical-Documentation.zip" class="govuk-link">CDS Technical Documentation</a>
+   <a href="./documentation/resources/CDS_Technical_Documentation.zip" class="govuk-link">CDS Technical Documentation</a>
  </p>
 
- <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 33.5MB</p>
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 30.3MB</p>
 
  <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The ZIP file contains Office files (docx, pptx, xlsx). Open in your preferred application.</p>
  
