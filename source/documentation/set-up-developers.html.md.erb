@@ -126,17 +126,13 @@ If a version of an API is not visible on the documentation page then you may nee
 
 ## API rate limiting
 
-To maintain good availability for every user across all our services, HMRC imposes API call rate limits on a per application basis. Each [application that you register](/developer/applications) will have its own API call quota (measured as 3 requests per second). Every request made by an application to any endpoint of any API-version will count towards this quota.
+Each software house should look to register a single application with HMRC.  This application is used for us to identify the software house during the OAuth 2.0 grant flow, and then in subsequent per user API calls. We limit the number of requests each application can make. This protects our backend service against excessive load and encourages real-time API calls over batch processing.
 
-A description of the HMRC standard rate limits can be found in the [Reference Guide on HMRC’s Developer Hub](/api-documentation/docs/reference-guide#rate-limiting).
+We set limits based on anticipated loads and peaks. Our standard limit is 3 requests per second per application as set in the [Reference Guide on HMRC’s Developer Hub](/api-documentation/docs/reference-guide#rate-limiting), although CDS users are pre-approved for 8 requests per second and can obtain this limit by contacting SDST. If you believe your application will sustain traffic load above this value then contact us to discuss further.
 
-Although the standard default rate limit is appropriate for most other HMRC services, users of CDS are expected to generate higher volumes of API requests.
+If your software reaches the allocated limit then some of your requests will get a HTTP 429 response code. A 429 response should be treated in the same way that your application would handle any other transient HTTP response; by backing off temporarily before attempting to make the request again.
 
-The existing automated HMRC business processes will still allocate the default rate limit to new subscriptions, but any CDS user will be able to increase their rate limit to 9 requests per second by simply emailing their request to HMRC [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) (including the name and ID of the applications requiring the higher limit).
-
-As with the default limit this higher limit of 9 requests per second for CDS users is still seen as a starting point. If testing identifies a need for a higher limit further increases can be requested via the online request process.
-
-If you intend to serve multiple different declarants with your software, it is recommended to register a new application with HMRC per declarant. Otherwise one declarant may adversely impact on the others by exceeding the rate limit for your single application.
+In most cases, simply following software design best practices will deliver a good customer experience. API requests should not be unnecessarily batched and rate limited responses (HTTP 429) should be captured by the application and be automatically retried without generating user errors. Retries should not be too quick (e.g. delaying the next attempt by a few seconds) and should include some randomisation to minimise the risk of different application instances conflicting. Where an application instance is generating high volumes of API calls, the software design should consider periodically pausing or locally rate limiting those API calls to minimise the potential for a spike in traffic from one instance impacting another.
 
 
 ## Related API documentation
