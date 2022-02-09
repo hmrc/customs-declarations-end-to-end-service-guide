@@ -220,7 +220,7 @@ See screenshot below for an example using Postman.
 ### Step 4 - Await notification
 A notification indicating the success or failure of the upload will be sent after a short period of time. These are sent like any other declaration notification. There is one notification per file uploaded to S3.
 
-If declaration notifications are "pushed" then file upload notifications will be pushed too. 
+If declaration notifications are "pushed" then file upload notifications will be pushed too. In this case the ConversationId HTTP header will be set to the "Reference" element in the file-upload response.
 
 For "pull" notifications they can be retrieved by using the id in the “Reference” element in the file-upload response as the conversationId.
 
