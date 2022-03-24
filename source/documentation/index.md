@@ -32,76 +32,6 @@ These journeys show examples of use.
 
 Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.
 
-### Changelog
-
-#### Version 0.8 
-
-14 September 2021
-
-What changed:
-
-* Added document The Path To Production.pdf
-
-#### Version 0.7
-
-11 June 2021
-
-What changed:
-
-* Added [Appendix section](/documentation/appendix.html) and following documentation:
-  - Annex-IV-extraction-elements-1.8.5
-  - CDS - Tariff Download Service - Identifying Duty Rates v1.0
-  - DispatchDataExport.xsd
-  - Dispatch Data Export XML
-  - Tariff Data Export
-
-#### Version 0.6
-
-5 March 2021
-
-What changed:
-
-* Additional guidance for push notification endpoints
-
-#### Version 0.5
-
-18 February 2021
-
-What changed:
-
-* Updated list of permitted file types for the file-upload endpoint
-* Updated the 5XX retry notification interval 
-
-#### Version 0.4
-
-18 January 2021
-
-What changed:
-
-* Added Documentation section to Developer set-up page 
-
-#### Version 0.3
-
-21 December 2020
-
-What changed:
-
-* Added error handling section
-
-#### Version 0.2
-
-10 November 2020
-
-What changed:
-
-* Added more detail to the file upload section
-
-#### Version 0.1
-
-15 October 2020
-
-* First release
-
 ## Technical Documentation
 This area houses the latest versions of documentation issued to CSPs and SWDs, detailing CDS functionality and how to develop for the service. The following documentation will include:
 
@@ -120,7 +50,7 @@ Please click on the link below to download the zip file:
    <a href="./documentation/resources/CDS_Technical_Documentation.zip" class="govuk-link">CDS Technical Documentation</a>
  </p>
 
- <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 30.3MB last updated 16/03/2022</p>
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 30.1MB last updated 24/03/2022</p>
 
- <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The ZIP file contains Office files (docx, pptx, xlsx). Open in your preferred application.</p>
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The ZIP file contains Office files (odt, ods, odp, xlsd & xsd). Open in your preferred application.</p>
  
