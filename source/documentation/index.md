@@ -50,7 +50,7 @@ Please click on the link below to download the zip file:
    <a href="./documentation/resources/CDS_Technical_Documentation.zip" class="govuk-link">CDS Technical Documentation</a>
  </p>
 
- <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 30.1MB last updated 24/03/2022</p>
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 30.0MB last updated 30/03/2022</p>
 
  <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The ZIP file contains Office files (odt, ods, odp, xlsd & xsd). Open in your preferred application.</p>
  
