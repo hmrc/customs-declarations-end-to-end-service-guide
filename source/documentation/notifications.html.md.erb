@@ -99,6 +99,13 @@ For more details about using the API please see the [Pull notifications API docu
     <td>Cancellation Refusal: N3/S3</td>
   </tr>
   <tr>
+    <td>04</td>
+    <td>DMSINC</td>
+    <td>With this message the submitter of an incomplete declaration is reminded to supplement the missing elements of the incomplete declaration</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
     <td>05</td>
     <td>DMSCTL</td>
     <td>This message informs the submitter that Customs intends to physically examine the goods.This will only be received when the goods are on hand.</td>
@@ -107,6 +114,13 @@ For more details about using the API please see the [Pull notifications API docu
   </tr>
   <tr>
     <td>06</td>
+    <td>DMSDOC</td>
+    <td>With this message the submitter is asked (and obligated) to present one or more documents, related to the declaration. The message is also used to remind the submitter about a document that had to be submitted already</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>07</td>
     <td>DMSRES</td>
     <td>The submitter is informed that corrections have been applied to the declaration by the trader, or as a result of physical inspection by customs (latter not likely to be triggered).</td>
     <td>Clear Declaration</td>
@@ -208,6 +222,15 @@ For more details about using the API please see the [Pull notifications API docu
     <td>This message informs the submitter that a decision has been made by Defra that will delay clearance of the goods.</td>
     <td>Perform Control</td>
     <td>Contained within E0</td>
+  </tr>
+  <tr>
+    <td>51</td>
+    <td>DMSQRY</td>
+    <td>This message informs the submitter that a query has been raised on the declaration by Customs,
+    advising that a caseworker has sent a secure message and is awaiting action by the submitter.
+    It is not possible to respond to this message, it is just an alert to access the query online.</td>
+    <td> </td>
+    <td> </td>
   </tr>
 </table>
 
