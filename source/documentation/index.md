@@ -39,7 +39,6 @@ This area houses the latest versions of documentation issued to CSPs and SWDs, d
 * CSP Only Technical Documentation: CSP only documentation and specifications that provide guidance on how to develop for CDS
 * Policy Documentation: CDS Tariff ("Paper" tariff) which provides guidance on how to complete a policy-compliant declaration
 * Trade Test Business Documentation: Documentation issued specifically for Trade Test, on the scope and functionality available in the trade test
-* Sample XMLs: Example XML messages that can be submitted by SWDs and CSPs to test the functionality available in Trade Test
   
   Documentation will be updated periodically, with communications being distributed by the Software Developer Support Team to inform users of any changes.
   The latest version of all documentation can be found in the zip file below.
