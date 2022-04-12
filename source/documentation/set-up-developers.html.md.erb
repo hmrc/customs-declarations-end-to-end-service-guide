@@ -53,17 +53,6 @@ A CDS-like service to support declarants in submitting all types of declarations
 - Integration testing for all APIs
 - Simulated controls, quota, immediate payments services
 
-## Documentation
-
-The Developer Hub documentation is intended to be a brief technical specification detailing how to submit to CDS. It details the request url, headers and example payloads for each endpoint. Any errors returned by the service are documented here too.
-
-For substantive, detailed information on CDS business processes, technical background papers, design documents, tariff data, xsd schema details and other documents there is a suite of files available on a Google Drive.
-
-As an example, to illustrate the difference, for errors related to a http request to the service then refer to the Developer Hub documentation. For errors related to, for example, declaration rejection codes, then refer to the Google Drive.   
-
-Access to both the Developer Hub, and the Google Drive (contact <SDSTeam@hmrc.gov.uk>) is granted as part of CDS on-boarding.
-
-
 ## API subscription model
 
 You must subscribe each application you register to the [CDS APIs](/api-documentation/docs/api) that they intend to use. 
@@ -72,7 +61,7 @@ Subscribing allows an application access to all of the endpoints of a particular
 
 ## API access control
 
-Some of the CDS APIs (and their documentation) are only accessible to applications that have been placed in the allow list for that API. If you cannot subscribe to or access the documentation of a particular API on the developer hub, please check with [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) if your ‘ApplicationId’ needs to be added to the allow list for that API.
+Some of the CDS APIs (and their documentation) are only accessible to applications that have been placed in the allow list for that API. If you cannot subscribe to or access the documentation of a particular API on the developer hub, please check with [SDST](mailto:SDSTeam@hmrc.gov.uk) if your ‘ApplicationId’ needs to be added to the allow list for that API.
 
 
 ## API versioning
@@ -121,8 +110,7 @@ For your application to be able to call a particular version of an API you must:
 -	[subscribe your application](/documentation/set-up-developers.html#api-subscription-model) to it (in addition to any other subscriptions you may already have for other versions)
 -	modify your application’s ‘Accept’ request header value when making a call to the API to reflect the version you wish to use (see the specific [API documentation](/documentation/set-up-developers.html#related-api-documentation) for more details on request header values)
 
-If a version of an API is not visible on the documentation page then you may need to request your application to be placed in the allow list by [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk). 
-
+If a version of an API is not visible on the documentation page then you may need to request your application to be placed in the allow list by [SDST](mailto:SDSTeam@hmrc.gov.uk).
 
 ## API rate limiting
 
@@ -137,7 +125,7 @@ In most cases, simply following software design best practices will deliver a go
 
 ## Related API documentation
 
-If you cannot access any of the following API documentation please email with [SDST](mailto:SDSTeam@hmrc.gsi.gov.uk) to check if your ‘ApplicationId’ needs to be [added to the allow list](/documentation/set-up-developers.html#api-access-control) for that API:
+If you cannot access any of the following API documentation please email with [SDST](mailto:SDSTeam@hmrc.gov.uk) to check if your ‘ApplicationId’ needs to be [added to the allow list](/documentation/set-up-developers.html#api-access-control) for that API:
 
 - [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) - lets you submit, amend and cancel a customs declaration, and provides the ability to upload supporting documents and make arrival notifications 
 - [Customs Declarations Information API](/api-documentation/docs/api/service/customs-declarations-information) - lets you query the status of submitted customs declarations
