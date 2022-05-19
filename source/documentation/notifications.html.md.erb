@@ -47,7 +47,7 @@ If CDS fails to deliver a notification (due to the specified callback URL not be
   </tr>
   <tr>
     <td>Callback URL responds with a 1XX, 3XX or 4XX HTTP code</td>
-    <td>CDS will retry to send the notification back to the trade system every 2 hours until successful or until the notification expires (2 weeks from the original date of sending).
+    <td>CDS will retry to send the notification back to the trade system every 10 minutes until successful or until the notification expires (2 weeks from the original date of sending).
         <br><br>
         Other notifications to the same subscription channel will continue unaffected.
     </td>
