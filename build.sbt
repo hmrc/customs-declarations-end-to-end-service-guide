@@ -2,7 +2,7 @@ import uk.gov.hmrc.DefaultBuildSettings.targetJvm
 import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin.publishingSettings
 
 val appName = "customs-declarations-end-to-end-service-guide"
-scalaVersion := "2.12.13"
+scalaVersion := "2.12.15"
 targetJvm := "jvm-1.8"
 
 lazy val microservice = Project(appName, file("."))
