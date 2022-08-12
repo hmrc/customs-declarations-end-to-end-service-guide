@@ -90,7 +90,7 @@ GEM
       activesupport (>= 6.1, < 7.0)
       addressable (~> 2.4)
       backports (~> 3.6)
-      bundler (~> 2.0)
+      bundler (~> 1.17)
       contracts (~> 0.13.0)
       dotenv
       erubis
@@ -127,8 +127,6 @@ GEM
       rouge (~> 3.2)
     minitest (5.16.2)
     multi_json (1.15.0)
-    nokogiri (1.13.8-arm64-darwin)
-      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
     openapi3_parser (0.9.2)
@@ -175,6 +173,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  ruby
   universal-darwin-20
 
 DEPENDENCIES
@@ -184,4 +183,4 @@ DEPENDENCIES
   wdm (~> 0.1.0)
 
 BUNDLED WITH
-   2.2.20
+   1.17.2
