@@ -1,0 +1,38 @@
+<h1 id="customs-declaration-service-end-to-end-service-guide">Customs Declaration Service end-to-end service guide</h1>
+<p>This guide explains how you can integrate your software with our APIs to complete a customs declaration.</p>
+<p>It shows how the APIs fit into various end-to-end user journeys. It is also intended to help software developers, designers, product owners or business analysts understand how your software needs to interact with HMRC systems.</p>
+<h2 id="overview">Overview</h2>
+<p>The Customs Declaration Service (CDS) is replacing the Customs Handling of Import and Export Freight (CHIEF) with a modern and flexible system that can handle anticipated future import and export growth.</p>
+<p><a href="https://www.gov.uk/government/collections/customs-handling-of-import-and-export-freight-chief-replacement-programme" rel="noopener noreferrer">More information about the Customs Declaration Service</a>.</p>
+<p>For imports or exports outside outside of the European Union, there will be differences in the information they need to put in their declarations. This is due to changes to the <a href="https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-cds" rel="noopener noreferrer">UK Trade Tariff</a> required by the Union Customs Code.</p>
+<h2 id="end-to-end-user-journeys">End-to-end user journeys</h2>
+<p>These journeys show examples of use.</p>
+
+<ul>
+<li><a href="documentation/set-up-developers.html#set-up-for-developers" rel="noopener noreferrer">developers set up</a></li>
+<li><a href="documentation/submitting-import-and-export-customs-declarations.html#submit-a-customs-declaration" rel="noopener noreferrer">submitting import and export customs declarations</a></li>
+<li><a href="documentation/notifications.html" rel="noopener noreferrer">receiving notifications</a><br></li>
+<li><a href="documentation/uploading-supporting-documents.html" rel="noopener noreferrer">uploading supporting documentation</a></li>
+<li><a href="documentation/query-declaration-status.html" rel="noopener noreferrer">query declaration status</a><br></li>
+<li><a href="documentation/inventory-linking-export-declarations.html" rel="noopener noreferrer">inventory linking for export declarations</a></li>
+<li><a href="documentation/arrival-notifications.html" rel="noopener noreferrer">making arrival notifications</a></li>
+<li><a href="documentation/validating-import-movements.html" rel="noopener noreferrer">validating import movements (CSPs only)</a></li>
+</ul>
+<p>Note that links in this guide to other CDS APIs (except for Customs Inventory Linking Exports API) will only work when logged in and subscribed.</p>
+<h2 id="technical-documentation">Technical Documentation</h2>
+<p>This area houses the latest versions of documentation issued to CSPs and SWDs, detailing CDS functionality and how to develop for the service. The following documentation will include:</p>
+
+<ul>
+<li>Technical Documentation: Documentation and specifications that provide guidance on how to develop for CDS</li>
+<li>CSP Only Technical Documentation: CSP only documentation and specifications that provide guidance on how to develop for CDS</li>
+<li>Policy Documentation: CDS Tariff (&ldquo;Paper&rdquo; tariff) which provides guidance on how to complete a policy-compliant declaration</li>
+<li>Trade Test Business Documentation: Documentation issued specifically for Trade Test, on the scope and functionality available in the trade test</li>
+</ul>
+<p>Documentation will be updated periodically, with communications being distributed by the Software Developer Support Team to inform users of any changes.
+  The latest version of all documentation can be found in the zip file below.</p>
+<p>Please click on the link below to download the zip file:</p>
+<p><p class="govuk-body-l" style="font-size: 24px;">
+   <a href="./documentation/resources/CDS_Technical_Documentation.zip" class="govuk-link">CDS Technical Documentation</a>
+ </p></p>
+<p><p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 38.2MB last updated 18/08/2022</p></p>
+<p><p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The ZIP file contains Office files (odt, ods, odp, xlsd &amp; xsd). Open in your preferred application.</p></p>

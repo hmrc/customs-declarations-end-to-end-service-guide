@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en" class="govuk-template no-js">
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Developer set up | Customs Declarations End-to-End Service Guide - HMRC Developer Hub</title>
+
+    <link href="/guides/customs-declarations-end-to-end-service-guide/stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="docs.developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html">
+
+
+      <meta property="og:image" content="docs.developer.service.hmrc.gov.uk/images/govuk-large.png" />
+      <meta property="og:site_name" content="HMRC Developer Hub" />
+      <meta property="og:title" content="Developer set up | Customs Declarations End-to-End Service Guide" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="docs.developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html" />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:image" content="docs.developer.service.hmrc.gov.uk/images/govuk-large.png" />
+      <meta property="twitter:title" content="Developer set up | Customs Declarations End-to-End Service Guide - HMRC Developer Hub" />
+      <meta property="twitter:url" content="docs.developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html" />
+
+      <!--[if !IE]>-->
+  <script
+    src="/tracking-consent/tracking.js"
+    id="tracking-consent-script-tag"
+    data-gtm-container="b"
+    data-language="en"
+  ></script>
+  <!--<![endif]-->
+
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="https://developer.service.hmrc.gov.uk/api-documentation" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            class="govuk-header__logotype-crown"
+            xmlns="http://www.w3.org/2000/svg"
+            viewbox="0 0 132 97"
+            height="30"
+            width="36"
+          >
+            <path
+              fill="currentColor" fill-rule="evenodd"
+              d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.2-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1c-.2.8-.4 1.6-.4 2.4 0 4.1 3.1 7.5 7 8.1h.2c.3 0 .7.1 1 .1.4 0 .7 0 1-.1h.2c4-.6 7.1-4.1 7.1-8.1 0-.8-.1-1.7-.4-2.4V34l-5.1-15.4c.4-.2.7-.6 1-.9zM66 92.8c16.9 0 32.8 1.1 47.1 3.2 4-16.9 8.9-26.7 14-33.5l-9.6-3.4c1 4.9 1.1 7.2 0 10.2-1.5-1.4-3-4.3-4.2-8.7L108.6 76c2.8-2 5-3.2 7.5-3.3-4.4 9.4-10 11.9-13.6 11.2-4.3-.8-6.3-4.6-5.6-7.9 1-4.7 5.7-5.9 8-.5 4.3-8.7-3-11.4-7.6-8.8 7.1-7.2 7.9-13.5 2.1-21.1-8 6.1-8.1 12.3-4.5 20.8-4.7-5.4-12.1-2.5-9.5 6.2 3.4-5.2 7.9-2 7.2 3.1-.6 4.3-6.4 7.8-13.5 7.2-10.3-.9-10.9-8-11.2-13.8 2.5-.5 7.1 1.8 11 7.3L80.2 60c-4.1 4.4-8 5.3-12.3 5.4 1.4-4.4 8-11.6 8-11.6H55.5s6.4 7.2 7.9 11.6c-4.2-.1-8-1-12.3-5.4l1.4 16.4c3.9-5.5 8.5-7.7 10.9-7.3-.3 5.8-.9 12.8-11.1 13.8-7.2.6-12.9-2.9-13.5-7.2-.7-5 3.8-8.3 7.1-3.1 2.7-8.7-4.6-11.6-9.4-6.2 3.7-8.5 3.6-14.7-4.6-20.8-5.8 7.6-5 13.9 2.2 21.1-4.7-2.6-11.9.1-7.7 8.8 2.3-5.5 7.1-4.2 8.1.5.7 3.3-1.3 7.1-5.7 7.9-3.5.7-9-1.8-13.5-11.2 2.5.1 4.7 1.3 7.5 3.3l-4.7-15.4c-1.2 4.4-2.7 7.2-4.3 8.7-1.1-3-.9-5.3 0-10.2l-9.5 3.4c5 6.9 9.9 16.7 14 33.5 14.8-2.1 30.8-3.2 47.7-3.2z"
+            ></path>
+            <image src="/assets/images/govuk-logotype-crown.png" xlink:href="" class="govuk-header__logotype-crown-fallback-image" width="36" height="32"></image>
+          </svg>
+          <span class="govuk-header__logotype-text">
+            GOV.UK
+          </span>
+        </span>
+        <span class="govuk-header__product-name">
+          HMRC Developer Hub
+        </span>
+      </a>
+    </div>
+    <div class="govuk-header__content">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+      <nav>
+        <ul id="navigation" class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/guides/customs-declarations-end-to-end-service-guide">Customs Declarations End-to-End Service Guide</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/api-documentation/docs/using-the-hub">Documentation</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/developer/applications">Applications</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="/developer/support">Support</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <a href="#toc" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </a>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents">
+              
+              <a href="#" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></a>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading" data-module="collapsible-navigation">
+                      <ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/"><span>Customs Declaration Service end-to-end service guide</span></a>
+    <ul>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/#overview"><span>Overview</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/#end-to-end-user-journeys"><span>End-to-end user journeys</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/#technical-documentation"><span>Technical Documentation</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html"><span>Developer set-up</span></a>
+    <ul>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#the-path-to-production"><span>The Path to Production</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#trade-test"><span>Trade Test</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#trader-dress-rehearsal"><span>Trader Dress Rehearsal</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#api-subscription-model"><span>API subscription model</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#api-access-control"><span>API access control</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#api-versioning"><span>API versioning</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#api-rate-limiting"><span>API rate limiting</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#related-api-documentation"><span>Related API documentation</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#authentication"><span>Authentication</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#error-handling-best-practices"><span>Error Handling Best Practices</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/submitting-import-and-export-customs-declarations.html"><span>Submitting import and export customs declarations</span></a>
+    <ul>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/submitting-import-and-export-customs-declarations.html#submit-new-declaration"><span>Submit new declaration</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/submitting-import-and-export-customs-declarations.html#amend-a-submitted-customs-declaration"><span>Amend a submitted customs declaration</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/submitting-import-and-export-customs-declarations.html#cancel-a-submitted-customs-declaration"><span>Cancel a submitted customs declaration</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/notifications.html"><span>Receiving notifications</span></a>
+    <ul>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/notifications.html#notifications"><span>Notifications</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/notifications.html#push-notifications"><span>Push notifications</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/notifications.html#pull-notifications"><span>Pull notifications</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/notifications.html#notification-types-and-definitions"><span>Notification Types and definitions</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/notifications.html#notification-message-structure"><span>Notification message structure</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/uploading-supporting-documents.html"><span>File Upload Service</span></a>
+    <ul>
+      <li>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/uploading-supporting-documents.html#document-upload-process"><span>Document Upload Process</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/uploading-supporting-documents.html#using-the-file-upload-api-endpoint"><span>Using the File-Upload API endpoint</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/uploading-supporting-documents.html#detailed-steps"><span>Detailed Steps</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/uploading-supporting-documents.html#file-upload-capabilities-in-external-test"><span>File Upload Capabilities in External Test</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/query-declaration-status.html"><span>Query declaration status</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/inventory-linking-export-declarations.html"><span>Inventory linking for export declarations</span></a>
+    <ul>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/inventory-linking-export-declarations.html#consolidation-of-consignments"><span>Consolidation of consignments</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/inventory-linking-export-declarations.html#movement-of-goods"><span>Movement of goods</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/inventory-linking-export-declarations.html#query"><span>Query</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/arrival-notifications.html"><span>Making arrival notifications</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/validating-import-movements.html"><span>Validate import movements (CSP Only)</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html"><span>Glossary</span></a>
+    <ul>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#import-declaration-types"><span>Import Declaration Types:</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#export-declaration-types"><span>Export Declaration Types:</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#eori"><span>EORI</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#icr"><span>ICR</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#ics"><span>ICS</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#inventory-reference"><span>Inventory Reference</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#lrn"><span>LRN</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#mrn"><span>MRN</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#office-of-entry"><span>Office of Entry</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#participants"><span>Participants</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#roe"><span>ROE</span></a>
+      </li>
+      <li>
+        <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/glossary.html#ucrs"><span>UCRs</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/appendix.html"><span>Appendix</span></a>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="developer-set-up">Developer set-up</h1>
+<p>To develop using these APIs you must:</p>
+
+<ul>
+<li>  be familiar with HTTP, RESTful services, XML and OAuth2</li>
+<li>  be registered as a developer on the <a href="/" rel="noopener noreferrer">HMRC Developer Hub</a></li>
+<li>  add at least one sandbox application on the Developer Hub</li>
+</ul>
+<p>Each application you register will be assigned an HMRC ‘ApplicationId’.</p>
+<p>You can view all the applications you have registered on the <a href="/developer/applications" rel="noopener noreferrer">Developer Hub Applications page</a> where you can administer things like API subscriptions and <a href="/api-documentation/docs/authorisation/credentials" rel="noopener noreferrer">application credentials</a>.</p>
+<p>Applications can be created in one of 2 possible environments:</p>
+
+<ul>
+<li>sandbox environments - where you start development and testing of your software</li>
+<li>production environment - when you are ready to go live you can request &lsquo;Production Credentials&rsquo; that will create you a new application (with a new ‘ApplicationId’) in the production environment</li>
+</ul>
+<p>The main differences between these 2 environments is that in the sandbox environments you will <a href="/api-documentation/docs/testing/test-users-test-data-stateful-behaviour" rel="noopener noreferrer">create and use test users</a> to call the endpoints, and the release versions of CDS APIs in the sandbox will generally be ahead of those in production.</p>
+<p><a href="/api-documentation/docs/testing" rel="noopener noreferrer">More details about getting started using the sandbox environments.</a></p>
+<p>The purpose of CDS sandbox (also known as External Test) is to provide an HMRC platform for all external partners (CSPs, SWHs, express operators, and declarants) to complete their required assurance activities so they are confident in their readiness for migration to CDS. The CDS External Test offering has two core services: Trade Test and Trader Dress Rehearsal, which are outlined below.</p>
+<h2 id="the-path-to-production">The Path to Production</h2>
+<p>The Path to Production is the software developer and declarant journey from CHIEF to CDS, demonstrating the process and steps from Trade Test to Trader Dress Rehearsal and CDS</p>
+<p><a href="/guides/customs-declarations-end-to-end-service-guide/documentation/resources/The_Path_to_Production.pdf" rel="noopener noreferrer">The Path to Production</a></p>
+<h2 id="trade-test">Trade Test</h2>
+<p>A functional test platform where 3rd party developers can assure their software integration against CDS APIs and a CDS back-end for all core declaration processes and notification types.
+- Test trader and account data
+- Process all declaration types and procedures
+- Integration testing for all APIs
+- Exports inventory linking, including dual running arrivals via CHIEF (HMUT)
+- Simulated controls, quota, immediate payments services</p>
+<h2 id="trader-dress-rehearsal">Trader Dress Rehearsal</h2>
+<p>A CDS-like service to support declarants in submitting all types of declarations to expose all actors in the supply chain to declaration processing in CDS as part of their final assurance activity prior to migration.</p>
+
+<ul>
+<li>Live trader and account data</li>
+<li>Process all declaration types and procedures</li>
+<li>Integration testing for all APIs</li>
+<li>Simulated controls, quota, immediate payments services</li>
+</ul>
+<h2 id="api-subscription-model">API subscription model</h2>
+<p>You must subscribe each application you register to the <a href="/api-documentation/docs/api" rel="noopener noreferrer">CDS APIs</a> that they intend to use. 
+Subscribing allows an application access to all of the endpoints of a particular API-version. An application may subscribe to as many APIs as required, but each &lsquo;application =&gt; API-version&rsquo; pairing must have its own subscription enabled.</p>
+<h2 id="api-access-control">API access control</h2>
+<p>Some of the CDS APIs (and their documentation) are only accessible to applications that have been placed in the allow list for that API. If you cannot subscribe to or access the documentation of a particular API on the developer hub, please check with <a href="mailto:SDSTeam@hmrc.gov.uk" rel="noopener noreferrer">SDST</a> if your ‘ApplicationId’ needs to be added to the allow list for that API.</p>
+<h2 id="api-versioning">API versioning</h2>
+<p>When calling a CDS endpoint you specify the version of the API you wish to use by specifying it in the ‘Accept’ request header of your request (see the specific <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#related-api-documentation" rel="noopener noreferrer">API documentation</a> for more details on request header values).</p>
+<p>In the production environment there is only one version available of each of the CDS APIs (version 1.0).</p>
+<p>In the sandbox environments however there may be 2 versions available  of a particular API, one for standard development known as ‘Trade Test’ and another version that more closely mirrors the production environment known as ‘Trader Dress Rehearsal’.</p>
+<p>Here is a breakdown of the CDS APIs with the versions of each that relate to ‘Trade Test’ and ‘Trader Dress Rehearsal’ respectively:</p>
+
+<table>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr>
+    <td><strong>API Service</strong></td>
+    <td><strong>Trade Test</strong></td>
+    <td><strong>Trader Dress Rehearsal</strong></td>
+  </tr>
+  <tr>
+    <td>Customs Declarations API</td>
+    <td>v 2.0</td>
+    <td>v 1.0</td>
+  </tr>
+  <tr>
+    <td>Customs Declarations Information API</td>
+    <td>v 1.0</td>
+    <td>v 2.0</td>
+  </tr>
+  <tr>
+    <td>Customs Inventory Linking Exports API</td>
+    <td>v 1.0</td>
+    <td>v 2.0</td>
+  </tr>
+  <tr>
+    <td>Customs Inventory Linking Imports API</td>
+    <td>v 1.0</td>
+    <td>v 2.0</td>
+  </tr>
+</table>  
+<p></br></p>
+<p>For your application to be able to call a particular version of an API you must:</p>
+
+<ul>
+<li>  ensure that your application has access to it (by checking that the version is visible to you on the API’s documentation page)</li>
+<li>  <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#api-subscription-model" rel="noopener noreferrer">subscribe your application</a> to it (in addition to any other subscriptions you may already have for other versions)</li>
+<li>  modify your application’s ‘Accept’ request header value when making a call to the API to reflect the version you wish to use (see the specific <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#related-api-documentation" rel="noopener noreferrer">API documentation</a> for more details on request header values)</li>
+</ul>
+<p>If a version of an API is not visible on the documentation page then you may need to request your application to be placed in the allow list by <a href="mailto:SDSTeam@hmrc.gov.uk" rel="noopener noreferrer">SDST</a>.</p>
+<h2 id="api-rate-limiting">API rate limiting</h2>
+<p>Each software house should look to register a single application with HMRC.  This application is used for us to identify the software house during the OAuth 2.0 grant flow, and then in subsequent per user API calls. We limit the number of requests each application can make. This protects our backend service against excessive load and encourages real-time API calls over batch processing.</p>
+<p>We set limits based on anticipated loads and peaks. Our standard limit is 3 requests per second per application as set in the <a href="/api-documentation/docs/reference-guide#rate-limiting" rel="noopener noreferrer">Reference Guide on HMRC’s Developer Hub</a>, although CDS users are pre-approved for 8 requests per second and can obtain this limit by contacting SDST. If you believe your application will sustain traffic load above this value then contact us to discuss further.</p>
+<p>If your software reaches the allocated limit then some of your requests will get a HTTP 429 response code. A 429 response should be treated in the same way that your application would handle any other transient HTTP response; by backing off temporarily before attempting to make the request again.</p>
+<p>In most cases, simply following software design best practices will deliver a good customer experience. API requests should not be unnecessarily batched and rate limited responses (HTTP 429) should be captured by the application and be automatically retried without generating user errors. Retries should not be too quick (e.g. delaying the next attempt by a few seconds) and should include some randomisation to minimise the risk of different application instances conflicting. Where an application instance is generating high volumes of API calls, the software design should consider periodically pausing or locally rate limiting those API calls to minimise the potential for a spike in traffic from one instance impacting another.</p>
+<h2 id="related-api-documentation">Related API documentation</h2>
+<p>If you cannot access any of the following API documentation please email with <a href="mailto:SDSTeam@hmrc.gov.uk" rel="noopener noreferrer">SDST</a> to check if your ‘ApplicationId’ needs to be <a href="/guides/customs-declarations-end-to-end-service-guide/documentation/set-up-developers.html#api-access-control" rel="noopener noreferrer">added to the allow list</a> for that API:</p>
+
+<ul>
+<li><a href="/api-documentation/docs/api/service/customs-declarations" rel="noopener noreferrer">Customs Declarations API</a> - lets you submit, amend and cancel a customs declaration, and provides the ability to upload supporting documents and make arrival notifications </li>
+<li><a href="/api-documentation/docs/api/service/customs-declarations-information" rel="noopener noreferrer">Customs Declarations Information API</a> - lets you query the status of submitted customs declarations</li>
+<li><a href="/api-documentation/docs/api/service/api-notification-pull" rel="noopener noreferrer">Pull Notifications API</a> - lets you “pull” business event notifications CDS has generated from requests submitted via the CDS APIs</li>
+<li><a href="/api-documentation/docs/api/service/customs-inventory-linking-exports" rel="noopener noreferrer">Customs Inventory Linking Exports API</a> - lets you link export declarations with specific consignments (Consolidate, Movement &amp; Query)</li>
+<li><a href="/api-documentation/docs/api/service/customs-inventory-linking-imports" rel="noopener noreferrer">Customs Inventory Linking Imports API (CSP only)</a> - lets CSPs link import declarations with specific consignments</li>
+<li><a href="/api-documentation/docs/api/service/secure-data-exchange-bulk-download" rel="noopener noreferrer">Bulk Data File List (list of tariff codes)</a> - lets you integrate tariff data into your customs software application, providing an initial start-up file, daily files and monthly consolidated files throughout the year</li>
+</ul>
+<h2 id="authentication">Authentication</h2>
+<h3 id="declarants-and-authorized-agents">Declarants and authorized agents</h3>
+<p>The declarant authenticates directly with us using their Government Gateway account, and grants authority to your application for specific scopes. 
+We then issue an OAuth 2.0 ‘access_token’ that is specific to that declarant. Your application passes the &lsquo;access token&rsquo; in subsequent API requests to user-restricted API endpoints. 
+A declarant ‘access_token’ expires after 4 hours and will need to be refreshed.</p>
+<p>Full details and examples can be found on the <a href="/" rel="noopener noreferrer">HMRC Developer Hub</a></p>
+<h3 id="community-system-providers">Community System Providers</h3>
+<p>Community System Providers (CSPs) will register privileged applications with HMRC.</p>
+<p>The CSP system will supply data identifying each declarant during each interaction with CDS.</p>
+<p>As CSPs are trusted by HMRC their systems will authenticate their own users. This acts a substitute for Government Gateway authentication described above.</p>
+<h2 id="error-handling-best-practices">Error Handling Best Practices</h2>
+<p>No system guarantees 100% error-free performance and CDS is no different.</p>
+<p>Services calling CDS need to be designed with failure in mind. There are several strategies to mitigate the errors that do occur.</p>
+<h3 id="5xx-errors">5XX errors</h3>
+<p>When CDS returns a http response code in the 5XX range the recommended response is to retry. Typically a 500 or 503 are the most likely to be received if there is an issue with CDS. The issue may be transient and hence the recommendation to retry.
+The one exception in this error range is when a 501 (Not Implemented) is returned. This indicates that the endpoint is incorrect. Retrying will not help in this situation. Instead, the url should be checked and fixed.</p>
+<p>After multiple attempts, perhaps with an exponential backoff strategy, the expectation is that this will resolve the vast majority of errors. As an example, 3-5 retries over 1-2 minutes would be a reasonable retry strategy.
+Consideration should also be given to using the circuit breaker pattern.</p>
+<h3 id="4xx-errors">4XX errors</h3>
+<p>If a response code in the 4XX range is received then the API consumer should examine the response payload for more detail on the error before attempting any retry. This error range usually indicates an error with the request. The request should be modified before attempting a retry.
+For example, a 400 (Bad Request) with a payload response message stating “Payload is not valid according to schema” should have it’s request payload modified so it validates against the CDS schemas and then resent.
+Similarly, a 406 (Not Acceptable) indicates that the Accept header is missing or invalid. The request should be amended accordingly.</p>
+<p>If you are receiving these errors consistently then you should report the problem via the normal routes.</p>
+<p>There are many recommendations and plenty of guidance is available on this topic. Some useful resources are listed below -</p>
+
+<ul>
+<li><a href="https://aws.amazon.com/blogs/apn/the-5-pillars-of-the-aws-well-architected-framework/" rel="noopener noreferrer">5 Pillars of the AWS Well-Architected Framework</a></li>
+<li><a href="https://docs.aws.amazon.com/whitepapers/latest/running-containerized-microservices/design-for-failure.html" rel="noopener noreferrer">Amazon whitepaper</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/" rel="noopener noreferrer">Implement resilient applications</a></li>
+</ul>
+
+            
+          </main>
+
+          <aside>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43414424-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('set', 'displayFeaturesTask', null);
+  ga('set', 'transport', 'beacon');
+  ga('set', 'page', location.pathname+location.search+location.hash);
+  ga('send', 'pageview');
+  </script>
+
+    <script src="/guides/customs-declarations-end-to-end-service-guide/javascripts/application.js"></script>
+  </body>
+</html>
