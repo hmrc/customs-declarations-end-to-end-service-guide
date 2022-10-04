@@ -25,7 +25,9 @@ Each subscription of your application to an API can configure different notifica
 
 ##Push notifications
 
-CDS ‘pushes’ notifications as they are generated via the specified channel to the trade systems. The trade systems need to always be ready to receive them (at the callback URL specified in the subscription).
+CDS ‘pushes’ notifications as they are generated via the specified channel to the trade systems. The trade systems need to always be ready to receive them at the callback URL specified in the subscription configuration.
+
+When your application is granted access to CDS in Production, you will be asked to specify a callback URL as part of the application approval process. If this callback URL subsequently changes, this will need to be communicated in advance to SDSTeam@hmrc.gov.uk who will ensure that the necessary configuration changes are completed.
 
 If CDS successfully delivers a notification it cannot thereafter be resent. There are no API endpoints that would enable a re-delivery to be requested.
 
