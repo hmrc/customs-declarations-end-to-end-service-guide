@@ -50,7 +50,7 @@ Please click on the link below to download the zip file:
  </p>
 
 
- <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 39.7MB last updated 24/02/2023</p>
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 38.6MB last updated 02/03/2023</p>
 
  <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The ZIP file contains Office files (odt, ods, odp, xlsd & xsd). Open in your preferred application.</p>
  
