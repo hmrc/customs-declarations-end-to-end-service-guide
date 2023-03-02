@@ -6,67 +6,73 @@ weight: 5
 <%= partial 'partials/google_tag_manager_js' %>
 
 # File Upload Service
-This section describes the technical steps required to send a document to CDS using the file upload API endpoint on the Customs Declaration API. In addition, it outlines the business processes associated with the file upload process to provide the user with an understanding of how this section is linked with declaration processing on CDS.
+This section describes the technical steps for sending a document to CDS, using the file-upload API endpoint on the Customs Declarations API. It also outlines the business processes associated with the file upload process, to provide the user with an understanding of how this section is linked with declaration processing on CDS.
 
 The Document Upload UI is out of scope for this service guide and will be covered in a separate user guide produced by the CDS programme.
 
 ### Background
-Currently, CHIEF does not provide Traders with a service to digitally upload documentation to support the processing of Customs Import/Export Declarations. Traders provide the supporting documentation via a multitude of channels and document mediums and HMRC National Clearance Hub (NCH) caseworkers currently manually receive and process documentation provided by declarants in support of submitted Customs declarations. 
+Currently, CHIEF does not provide traders with a service to digitally upload documentation to support the processing of customs import and export declarations. Traders provide the supporting documentation via a multitude of channels and document mediums, and HMRC National Clearance Hub (NCH) caseworkers currently manually receive and process documentation provided by declarants in support of submitted customs declarations.
 
 Under the Customs Declaration Service (CDS), HMRC has delivered the CDS Digital Secure File Upload Service to remove the need for the manual processing of supporting documentation for declarations submitted on CDS. The CDS Digital Secure File Upload Service allows the documentation uploaded in support of a declaration to be automatically transferred into HMRC’s case management solution for review.
 
-## Document Upload Process
-#### Process Overview
-The File Upload API will accept requests from the trader’s software to upload a number of files for a given declaration ID (MRN) and respond with a location (URL) to upload each file. The trader will then upload each file into an inbound file bucket. 
+## Document upload process
+#### Process overview
+The file-upload endpoint will accept requests from the trader’s software to upload a number of files for a given declaration ID (an MRN like `23GBXXXXXXXXXXXXXX`, where `X` represents a randomly-generated alphanumeric character), and will respond with a location (URL) where each file should be uploaded. The trader will then upload each file into an inbound file bucket.
 
 The API will return a unique file reference code to the software for each file successfully submitted by the trader via a Digital notification. This file reference code can be used in future correspondence with HMRC. Please note that the submitter of the file will not receive a confirmation notification from back-end CDS systems that confirm the file has been matched to the declaration.
 
-The CDS system uses the MRN to link documents uploaded via the Secure File Upload Service and the original declaration. HMRC Caseworkers will be notified when each document uploaded by the trader is received and also when all files uploaded together as a group for a declaration have been received. When all files have been received, HMRC Caseworkers will review the documents they contain against the case for the declaration ID provided in the original API call. 
+The CDS system uses the MRN to link documents uploaded via the Secure File Upload Service and the original declaration. HMRC Caseworkers will be notified when each document uploaded by the trader is received, and also when all files uploaded together as a group for a declaration have been received. When all files have been received, HMRC Caseworkers will review the documents they contain against the case for the declaration ID provided in the original API call.
 
-Currently, if an HMRC Caseworker requires a submission of supporting documents, the Trader will be notified via email. If the HMRC Caseworker finds any issues with the submitted documents, they will notify the trader to upload their documents again. Under current processes, the NCH will contact the declarant via email in the event that further information is required. HMRC is currently working to deliver an automated solution for handling such requests and this document will be updated once the solution has been confirmed.
+Currently, if an HMRC Caseworker requires a submission of supporting documents, the trader will be notified via email. If the HMRC Caseworker finds any issues with the submitted documents, they will notify the trader to upload their documents again. Under current processes, the NCH will contact the declarant via email in the event that further information is required. HMRC is currently working to deliver an automated solution for handling such requests and this document will be updated once the solution has been confirmed.
 
-In such cases, the HMRC caseworker will also reset any SLAs defined around this process. 
+In such cases, the HMRC caseworker will also reset any service level agreements that have been defined around this process.
 
-The files uploaded by the trader will be scanned for malware and then stored in HMRC’s document repository system where they will be retained in accordance with HMRC policies (6 + current year).
+The files uploaded by the trader will be scanned for malware and then stored in HMRC’s document repository system where they will be retained in accordance with [HMRC policies](https://www.gov.uk/government/publications/hmrc-records-management-and-retention-and-disposal-policy/records-management-and-retention-and-disposal-policy) (6 years plus current).
 
-#### Initiating an Upload and Documentary Controls
-An authenticated trader may use the service at any time to submit files containing their documents required to support the declarations made by them. 
+#### Initiating an upload and documentary controls
+An authenticated trader may use the service at any time to submit files that contain supporting documents for their declarations.
 
-In some cases, a trader may have also received a DMSDOC notification triggered by the declaration risking process (Route 1 or Route 3) to submit their documents for a declaration that they have submitted. However, it is not necessary to wait for a DMSDOC notification to upload a file to HMRC via the CDS Digital Secure File Upload Service.
+In some cases, a trader may have also received a DMSDOC notification, triggered by the declaration risking process (Route 1 or Route 3), asking them to submit documents for a declaration that they have submitted. However, it is not necessary to wait for a DMSDOC notification to upload a file to HMRC via the CDS Digital Secure File Upload Service.
 
-It should be noted that the DMSDOC notification will not link to the Secure File Upload Service, nor will it specify the documents which must be uploaded. The same applies to CSP notifications and the Declaration Information API which return the routing status for the declaration, but not which document(s) are required (see Section 1.3 References). In the event of a documentary check, a declarant can either choose to upload the particular document that is expected to have triggered the control (e.g. a licence document) or all documentation associated with the declaration.
+It should be noted that the DMSDOC notification will not link to the Secure File Upload Service, but the documents to be uploaded are specified by the WCO StatementCode in the DMSDOC. The same applies to CSP notifications and the Customs Declarations Information API, which return the routing status for the declaration, but not which documents are required (see Section 1.3 References). In the event of a documentary check, a declarant can either choose to upload the particular document that is expected to have triggered the control (for example, a licence document) or all documentation associated with the declaration.
 
-## Using the File-Upload API endpoint
+## Using the file-upload API endpoint
 
-File upload is a multi-stage process. It starts with a single call to an endpoint on the Customs Declarations service to request S3 upload metadata for sending one or more files. This call returns one or more URLs with related “Fields”. These in turn are split into separate upload requests to S3, one per file.
-### High-level Steps
-#### Phase 1 – Request the URL
-##### Step 1 - Initiate upload
-Start the sequence of steps with a call to the file upload endpoint on the Customs Declarations service. This can be for one or more files. The payload schema can be found in the zip of schemas and example messages in the Customs Declarations documentation on the Developer Hub. Examples are provided below.
-##### Step 2 - Parse response
-For each file specified in the initiate request, the response will contain a one-time S3 URL used to upload a file and a collection of name/value pairs in a “Fields” collection to send with the file upload.
+File upload is a multi-stage process. It starts with a single call to an endpoint on the Customs Declarations service, to request S3 upload metadata for sending one or more files. This call returns one or more URLs with related “Fields”. These, in turn, are split into separate upload requests to S3 (one per file).
+### High-level steps
+#### Phase 1: request the URL
+##### Step 1: initiate the upload
+Start the sequence of steps with a call to the file-upload endpoint on the Customs Declarations service. This can be for one or more files. The payload schema can be found in the zipped folder of schemas and example messages in the Customs Declarations API documentation on the Developer Hub. Examples are provided below.
+##### Step 2: parse the response
+For each file specified in the initiate request, the response will contain:
 
-Multiple individual sets of urls and “Fields” collections may be returned. E.g. if five files are initiated in the request above then five URLs with five linked “Fields” collections will be returned in the payload response.
+* a one-time S3 URL, which can be  used to upload a file
+* a collection of name/value pairs in a “Fields” collection, to send with the file upload
 
-#### Phase 2 – Upload the Files
-##### Step 3 - POST the file
-For each file specified in the initiate request, compose a POST request to the S3 URL. In the fields of the form include all the name/value pairs taken from the “Fields” collection in the initiate response payload. Include the actual file to upload as the final field in the form with the name “file”.
-##### Step 4 - Await notification
-An asynchronous notification will indicate the success or failure of the upload. These are retrieved like declaration notifications. Failures can be due to invalid file types, files too large etc.
+Multiple individual sets of URLs and “Fields” collections may be returned. For example, if five files are initiated in the request above, then five URLs with five linked “Fields” collections will be returned in the payload response.
 
-### Process Flow
-The diagram below outlines the high-level functionality described in this Phase 2 above.
+#### Phase 2: upload the files
+##### Step 3: POST the file
+For each file specified in the initiate request, compose a POST request to the S3 URL. In the fields of the form, include all the name/value pairs taken from the “Fields” collection in the initiate response payload. Include the actual file to upload as the final field in the form (the name of the field should be “file”).
+##### Step 4: await notification
+An asynchronous notification will indicate the success or failure of the upload. These are retrieved like declaration notifications. Failures can be due, for example, to invalid file types or to files being too large.
+
+### Process flow
+The diagram below outlines the high-level functionality of Phase 2:
 
 ![Comm](/documentation/resources/file-upload-process-flow.png)
 
-## Detailed Steps
-### Step 1 - Initiate upload
+## Detailed steps
+### Step 1: initiate the upload
+Ensure the MRN is used as the Declaration ID within the payload.
+
 Call the `/customs/declarations/file-upload` endpoint to initiate the file-upload process.
-A typical request payload -
+
+Here is a typical request payload:
 
 ```xml
 <hmrc:FileUploadRequest xmlns:hmrc="hmrc:fileupload">
- <hmrc:DeclarationID>DEC123</hmrc:DeclarationID>
+ <hmrc:DeclarationID>23GBXXXXXXXXXXXXXX</hmrc:DeclarationID>
  <hmrc:FileGroupSize>1</hmrc:FileGroupSize>
  <hmrc:Files>
    <hmrc:File>
@@ -77,12 +83,12 @@ A typical request payload -
 </hmrc:FileUploadRequest>
 ```
 
-#### Rules for File Initiation Requests
-* A maximum of 11 files may be initiated in a single request. To initiate two file uploads with no optional elements e.g.
+#### Rules for file initiation requests
+* A maximum of 11 files may be initiated in a single request. To initiate two file uploads with no optional elements, for example:
 
 ```xml
 <hmrc:FileUploadRequest xmlns:hmrc="hmrc:fileupload">
-       <hmrc:DeclarationID>DEC123</hmrc:DeclarationID>
+       <hmrc:DeclarationID>23GBXXXXXXXXXXXXXX</hmrc:DeclarationID>
        <hmrc:FileGroupSize>2</hmrc:FileGroupSize>
        <hmrc:Files>
          <hmrc:File>
@@ -95,17 +101,17 @@ A typical request payload -
       </hmrc:FileUploadRequest>
 ```
 
-* The permitted file types are pdf, jpg/jpeg, png, and txt which correspond to the following mime types (note the type is determined from the file contents and not the extension) -
+* The permitted file types are PDF, JPG/JPEG, PNG, and text, which correspond to the following MIME types (note that the type is determined from the file contents, *not* the extension):
   - application/pdf
   - image/jpeg
   - image/png
   - text/plain
   
-* Optional SuccessRedirect and ErrorRedirect elements (example below) may be added to each file upload to redirect when there is a successful or failed upload. This is intended for developers creating UI applications that interact with this endpoint. For API interactions it can be ignored.
+* Optional SuccessRedirect and ErrorRedirect elements (example below) may be added to each file upload to redirect when there is a successful or failed upload. This is intended for developers who are creating UI applications that interact with this endpoint. For API interactions, it can be ignored.
 
 ```xml
 <hmrc:FileUploadRequest xmlns:hmrc="hmrc:fileupload">
-          <hmrc:DeclarationID>DEC123</hmrc:DeclarationID>
+          <hmrc:DeclarationID>23GBXXXXXXXXXXXXXX</hmrc:DeclarationID>
           <hmrc:FileGroupSize>1</hmrc:FileGroupSize>
           <hmrc:Files>
             <hmrc:File>
@@ -118,8 +124,8 @@ A typical request payload -
         </hmrc:FileUploadRequest>
 ```
 
-#### Http Headers
-The headers are described in detail in the file-upload endpoint section of the  Customs Declarations service on the Developer Hub. To summarise, they are -
+#### Http headers
+The headers are described in detail in the file-upload endpoint section of the  Customs Declarations API documentation on the Developer Hub. To summarise, they are:
 
 
 |Header Name|Mandatory?|Example|Notes|
@@ -129,19 +135,20 @@ The headers are described in detail in the file-upload endpoint section of the  
 |X-Badge-Identifier|For CSPs|ABC123||
 |X-Eori-Identifier|For CSPs|GB123456789000||
 
-1. Accept headers by environment -
+1. Accept headers by environment:
 
 * Production - application/vnd.hmrc.1.0+xml
 * Trade Test - application/vnd.hmrc.2.0+xml
 * Trader Dress Rehearsal - application/vnd.hmrc.1.0+xml
-See screenshot below for an example using Postman.
 
-#### Response Codes
-A successful initiate upload returns a 200 OK code with a payload containing an S3 href and a fields collection, one per file upload initiated (see Step 2 below).
+See the screenshot below for an example of a request being sent using the [Postman](https://postman.com) application.
 
-A failure is indicated by a 4XX or 5XX code. E.g. 
+#### Response codes
+A successful initiate upload returns an HTTP 200 OK response code, with a payload containing an S3 `Href` and a `Fields` collection (one per file upload initiated &mdash; see step 2 below).
 
-For an invalid XML Payload an error code 400 is returned with the following body -
+A failure is indicated by a 4XX or 5XX response code.
+
+For an invalid XML payload, for example, an error code 400 is returned with the following body:
  
 ```xml
 <errorResponse>
@@ -156,7 +163,7 @@ For an invalid XML Payload an error code 400 is returned with the following body
 </errorResponse>
 ```
 
-For an internal server error an error code 500 is returned with the following body -
+For an internal server error, an error code 500 is returned with the following body:
 
 ```xml
 <errorResponse>
@@ -165,10 +172,10 @@ For an internal server error an error code 500 is returned with the following bo
 </errorResponse>
 ```
 
-For other errors see the Developer Hub [documentation](api-documentation/docs/reference-guide).
+For other errors, see the [Reference guide](https://developer.service.hmrc.gov.uk/api-documentation/docs/reference-guide#errors) on the Developer Hub.
 
-### Step 2 - Parse response
-A typical response payload resulting from the first request above -
+### Step 2: parse the response
+A typical response payload resulting from the first request would be:
 
 ```xml
 <FileUploadResponse xmlns="hmrc:fileupload">
@@ -199,34 +206,34 @@ A typical response payload resulting from the first request above -
 </FileUploadResponse>
 ```
 
-Note that when multiple files are initiated in the request a single response is returned containing multiple File elements. Each of these are then composed into separate POST requests to S3 - see next step.
+**Note:** When multiple files are initiated in the request, a single response that contains multiple `File` elements is returned. Each of these are then composed into separate POST requests to S3 in the next step.
 
-### Step 3 - Upload the file
+### Step 3: upload the file
 
-Upload a file by
+Upload a file by:
 
-* Executing a http POST request containing a form submission to the url extracted from the "Href" field in the response above
-* Include all the name/value pairs from the "Fields" collection in the form 
-* The "file" field containing the upload file must be the last field in the submitted form
-* Use multipart encoding (multipart/form-data)
-* Each file size must not exceed 10MB
-* The one-time url and associated metadata expires after 7 days. If the file is not uploaded in that time, then a new initiate request will be needed.
-* See the AWS S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev) for more details including response and error codes
+* Executing an HTTP POST request that contains a form submission. The request should be sent to the URL that was specified in the `Href` field in the response above.
+* Include all the name/value pairs from the `Fields` collection in the form.
+* The `file` field that contains the file to be uploaded must be the last field in the submitted form.
+* Use multipart encoding (multipart/form-data).
+* Each file size must not exceed 10MB.
+* The one-time URL and associated metadata expires after 7 days. If the file is not uploaded in that time, then a new initiate request will be needed.
+* See the AWS S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev) for more details including response and error codes.
 
-If multiple files are specified in the initiate request, then there will be an equivalent number of File elements in the response containing separate urls and Fields collections. Each of these should be composed into separate S3 upload requests.
+If multiple files are specified in the initiate request, then there will be an equivalent number of `File` elements in the response. Each `File` element will contain a URL and a `Fields` collection, and should be used to compose a separate S3 upload request.
 
-See screenshot below for an example using Postman.
+See the screenshot below for an example of a request being sent using the [Postman](https://postman.com) application.
 
-### Step 4 - Await notification
-A notification indicating the success or failure of the upload will be sent after a short period of time. These are sent like any other declaration notification. There is one notification per file uploaded to S3.
+### Step 4: await notification
+A notification indicating the success or failure of the upload will be sent after a short period of time. These are sent like any other declaration notification. There is one notification per file that is uploaded to S3.
 
-If declaration notifications are "pushed" then file upload notifications will be pushed too. In this case the ConversationId HTTP header will be set to the "Reference" element in the file-upload response.
+If declaration notifications are "pushed", then file upload notifications will be pushed too. In this case, the `ConversationId` HTTP header will be set to the `Reference` element in the file-upload response.
 
-For "pull" notifications they can be retrieved by using the id in the “Reference” element in the file-upload response as the conversationId.
+For "pull" notifications, file upload notifications can be retrieved by using the ID that was in the `Reference` element in the file-upload response as the `ConversationId`.
 
-Failure reasons include too large a file, invalid file type, virus detected etc.
+Failure can occur, for example, because an uploaded file is too large, has an invalid file type, or contains a virus.
 
-A typical successful notification is -
+A typical successful notification is:
 
 ```xml
 <Root xmlns="hmrc:fileupload">
@@ -238,7 +245,7 @@ A typical successful notification is -
 </Root>
 ```
 
-A typical failure notification is -
+A typical failure notification is:
 
 ```xml
 <Root xmlns="hmrc:fileupload">
@@ -248,28 +255,36 @@ A typical failure notification is -
 </Root>
 ```
 
+## File upload capabilities in external test
+Due to technical limitations, the file upload service in External Test is not fully integrated with the CDS back-end. This is to allow for automated resolution of controls without a requirement for manual intervention, as part of continued testing with external parties.
 
-## File Upload Capabilities in External Test
-Due to technical limitations, the file upload service in External Test is not fully integrated with the CDS back-end. This is to allow for automated resolution of controls without a requirement for manual intervention as part of continued testing with external parties.
+A documentary control can be triggered in External Test by using the appropriate ‘trigger word’ in the Goods Description field for the commodity code (e.g. `timportsdocblocking`). Subsequently, it is possible for users of External Test to upload a file via the file-upload endpoint. However, please be aware that these two processes will not be linked and the uploading of a file is not necessary to resolve an open documentary control in either External Test environment.
 
-A documentary control can be triggered in External Test by using the appropriate ‘trigger word’ in the Goods Description field for the commodity code (e.g. timportsdocblocking). Subsequently, it is possible for users of External Test to upload a file via the file upload endpoint. However, please be aware that these two processes will not be linked and the uploading of a file is not necessary to resolve an open documentary control in either External Test environment.
-
-There are not currently plans to deliver the Secure File Upload UI into either of the External Test services (Trade Test, Trader Dress Rehearsal).
+There are no current plans to deliver the Secure File Upload UI into either of the External Test services (Trade Test, or Trader Dress Rehearsal).
 
 #### Trade Test
 ##### Functionality from TTM11.0
-Beginning in August 2020 (TTM11.0), the functionality available in Trade Test will be expanded to provide a richer experience that more closely aligns to the behaviour in Production. The revised capability in Trade Test for the file upload API endpoint will be as follows:
+Beginning in August 2020 (TTM11.0), the functionality available in Trade Test will be expanded to provide a richer experience that more closely aligns to the behaviour in the Production environment. The revised capability in Trade Test for the file-upload API endpoint will be as follows:
 
-1. The end user submits a request to the customs/declarations/file-upload endpoint 
-1. A synchronous http 200 response is returned to the end user along with a response body containing the S3 bucket location and other details required for the file upload. These are real S3 bucket details and none of the information is stubbed. 
-1. End user would upload the file to s3 bucket location in a POST call by providing the details returned from step 2 for the following type of files -
-application/pdf,application/msword,application/vnd.ms-excel,image/png,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,image/jpeg,text/plain
-1. The file will undergo virus scan checks and if the scan is successful the end user will be notified via an asynchronous notification that the file upload has been successful otherwise they will be notified that the file has failed the virus scan and has been quarantined. This notification will be received as a push or pull notification, depending on the presence or absence of a callback url during the API subscription process.
+1. The user submits a request to the `customs/declarations/file-upload` endpoint.
+2. A synchronous HTTP 200 response is returned to the user, along with a response body containing the S3 bucket location and other details required for the file upload. These are real S3 bucket details and none of the information is stubbed.
+3. The user uploads the file to the S3 bucket location in a POST request, using the details that were returned in step 2. This works for the following types of file:
+  - application/pdf
+  - application/msword
+  - application/vnd.ms-excel
+  - image/png
+  - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+  - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  - image/jpeg
+  - text/plain
+4. The file will undergo virus scan checks and, if the scan is successful, the user will be notified via an asynchronous notification that the file upload has been successful. Otherwise, they will be notified that the file has failed the virus scan and has been quarantined. This notification will be received as a push or pull notification, depending on the presence or absence of a callback URL during the API subscription process.
 
 #### Trader Dress Rehearsal
-From August 2020, the file upload API endpoint will be available in the Trader Dress Rehearsal with the same functionality outlined above for Trade Test as delivered in TTM11.0.
+From August 2020, the file-upload API endpoint will be available in the Trader Dress Rehearsal environment, with the same functionality as outlined above for Trade Test (as delivered in TTM11.0).
 
 ### Screenshots using Postman
+
+The following screenshots show example requests and responses being sent and received by the Postman application.
 
 #### Sample file-upload initiate request and response
 

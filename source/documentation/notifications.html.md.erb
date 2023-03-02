@@ -8,11 +8,11 @@ weight: 4
 #Receiving notifications
 
 ## Notifications
-At various stages of the asynchronous customs declaration process your application will need to be notified by HMRC systems of certain events resulting from interactions with one of the CDS APIs. 
+At various stages of the asynchronous customs declaration process, your application will need to be notified by HMRC systems of certain events resulting from interactions with one of the CDS APIs.
 
 As a bare minimum for each declaration you can expect to receive a notification of acceptance and clearance, though others may be sent.
 
-CDS DMSxxx notifications will be routed primarily to the submitter of the declaration. It is the responsibility of the submitter to then route the notifications to the declarant if appropriate.
+CDS DMSxxx notifications will be routed primarily to the submitter of the declaration. It is the responsibility of the submitter to then route the notifications to the declarant, if appropriate.
 
 All of the CDS APIs that use notifications offer the choice of either push or pull notifications. Part of an application’s [subscription](/documentation/set-up-developers.html#api-subscription-model) to a CDS API defines how notifications from that API will be delivered to it.
 
@@ -27,11 +27,11 @@ Each subscription of your application to an API can configure different notifica
 
 CDS ‘pushes’ notifications as they are generated via the specified channel to the trade systems. The trade systems need to always be ready to receive them at the callback URL specified in the subscription configuration.
 
-When your application is granted access to CDS in Production, you will be asked to specify a callback URL as part of the application approval process. If this callback URL subsequently changes, this will need to be communicated in advance to SDSTeam@hmrc.gov.uk who will ensure that the necessary configuration changes are completed.
+When your application is granted access to CDS in Production, you will be asked to specify a callback URL as part of the application approval process. If the callback URL subsequently changes, this will need to be communicated in advance to SDSTeam@hmrc.gov.uk, who will ensure that the necessary configuration changes are completed.
 
-If CDS successfully delivers a notification it cannot thereafter be resent. There are no API endpoints that would enable a re-delivery to be requested.
+If CDS successfully delivers a notification, it cannot thereafter be resent. There are no API endpoints that would enable a re-delivery to be requested.
 
-If CDS fails to deliver a notification (due to the specified callback URL not being contactable or the trade system responding with a non-200 HTTP response code) then it will reattempt to deliver the notification using the following rules:
+If CDS fails to deliver a notification (due to the specified callback URL not being contactable or the trade system responding with a non-200 HTTP response code), then it will reattempt to deliver the notification using the following rules:
 
 <table>
   <tr><td></td><td></td></tr>
@@ -40,35 +40,35 @@ If CDS fails to deliver a notification (due to the specified callback URL not be
     <td><strong>Retry Behaviour</strong></td>
   </tr>
   <tr>
-    <td>Callback URL does not respond or responds with a 5XX HTTP code</td>
+    <td>Callback URL does not respond, or responds with a 5XX HTTP code</td>
     <td>
-        CDS will retry to send the failed notification every 2&frac12; minutes until successful or until the notification expires (2 weeks from the original date of sending).
+        CDS will retry to send the failed notification every 2&frac12; minutes until successful, or until the notification expires (2 weeks from the original date of sending).
         <br><br>
         All other notifications due to be sent through the same subscription channel will be blocked until the issue is resolved. 
     </td>
   </tr>
   <tr>
     <td>Callback URL responds with a 1XX, 3XX or 4XX HTTP code</td>
-    <td>CDS will retry to send the notification back to the trade system every 10 minutes until successful or until the notification expires (2 weeks from the original date of sending).
+    <td>CDS will retry to send the notification back to the trade system every 10 minutes until successful, or until the notification expires (2 weeks from the original date of sending).
         <br><br>
         Other notifications to the same subscription channel will continue unaffected.
     </td>
   </tr>
 </table>
 
-If your endpoint is hosted by AWS then you must either use edge-optimised custom domain names or regional custom domain names.
+If your endpoint is hosted by AWS, then you must either use edge-optimised custom domain names or regional custom domain names.
 
 ##Pull notifications
 
-Using this strategy the application ‘pulls’ notifications from CDS when it is ready to do so.
+Using this strategy, the application ‘pulls’ notifications from CDS when it is ready to do so.
 
 The Pull API endpoints allow identification and retrieval of selected notifications via a range of identifiers.
 
 Pull retrieval also allows (within limits) previously read notifications to be re-read if necessary.
 
-For more details about using the API please see the [Pull notifications API documentation](/api-documentation/docs/api/service/api-notification-pull) on the Dev Hub.
+For more details about using the API, please see the [Pull notifications API documentation](/api-documentation/docs/api/service/api-notification-pull) on the HMRC Developer Hub.
 
-##Notification Types and definitions
+##Notification types and definitions
 
 <table>
   <tr><td></td><td></td><td></td><td></td><td></td></tr>
@@ -82,21 +82,21 @@ For more details about using the API please see the [Pull notifications API docu
   <tr>
     <td>01</td>
     <td>DMSACC</td>
-    <td>With this message the submitter is informed that the declaration has been legally accepted</td>
+    <td>With this message, the submitter is informed that the declaration has been legally accepted.</td>
     <td>Validate Declaration</td>
     <td></td>
   </tr>
   <tr>
     <td>02</td>
     <td>DMSRCV</td>
-    <td>With this message the submitter is informed that the message has been registered. This can apply to pre-lodged declarations as well as additional messages.</td>
+    <td>With this message, the submitter is informed that the message has been registered. This can apply to pre-lodged declarations as well as additional messages.</td>
     <td>Validate Declaration</td>
     <td>H2/P2</td>
   </tr>
   <tr>
     <td>03</td>
     <td>DMSREJ</td>
-    <td>With this message the submitter is informed that the received message has been rejected. This can apply to declarations and additional messages.</td>
+    <td>With this message, the submitter is informed that the received message has been rejected. This can apply to declarations and additional messages.</td>
     <td>Validate Declaration</td>
     <td>Cancellation Refusal: N3/S3</td>
   </tr>
@@ -110,7 +110,7 @@ For more details about using the API please see the [Pull notifications API docu
   <tr>
     <td>06</td>
     <td>DMSDOC</td>
-    <td>With this message the submitter is asked (and obligated) to present one or more documents, related to the declaration. The message is also used to remind the submitter about a document that had to be submitted already</td>
+    <td>With this message, the submitter is asked (and obligated) to present one or more documents that are related to the declaration. The message is also used to remind the submitter about a document that had to be submitted already.</td>
     <td> </td>
     <td> </td>
   </tr>
@@ -148,7 +148,7 @@ For more details about using the API please see the [Pull notifications API docu
   <tr>
     <td>11</td>
     <td>DMSREQ</td>
-    <td>With this message the submitter is informed of the acceptance or denial of the additional message submitted to customs. In the case of a denial, the reason is indicated.</td>
+    <td>With this message, the submitter is informed of the acceptance or denial of the additional message submitted to customs. In the case of a denial, the reason is indicated.</td>
     <td>Handle Additional Message</td>
     <td>N3/S3, N4/S4</td>
   </tr>
@@ -156,7 +156,7 @@ For more details about using the API please see the [Pull notifications API docu
     <td>13</td>
     <td>DMSTAX</td>
     <td>
-        The submitter is informed of the duties liable with this message. 
+        With this message, the submitter is informed of the duties liable.
         It can either inform on what has been reserved against a deferment account or similar method of payment. 
         Alternatively, it can be used as a payment instruction for immediate methods of payment. 
         In the immediate payment scenario, a payment reference is also provided.
