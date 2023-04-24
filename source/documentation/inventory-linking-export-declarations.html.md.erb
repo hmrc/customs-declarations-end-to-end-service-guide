@@ -9,25 +9,23 @@ weight: 6
 
 Submit an XML request for the consolidation, movement or querying of consignments for the purposes of inventory linking:
 
-- Consolidation - enables the combining of multiple consignments into one master consignment, or splitting one consignment into multiple consignments
-- Movement - records the movement of consignments within Customs controlled storage facilities (for designated ‘Loaders’ only)
-- Query - the querying of data held within the Inventory Linking Export database
+- Consolidation: enables the combining of multiple consignments into one master consignment, or splitting one consignment into multiple consignments
+- Movement: records the movement of consignments within Customs-controlled storage facilities (for designated ‘Loaders’ only)
+- Query: the querying of data held within the Inventory Linking Export database
 
 ##Consolidation of consignments
-Consolidation covers the management of the relationship between MUCRs, DUCRs, and other UCRs.
+Consolidation covers the management of the relationship between [MUCRs, DUCRs, and other UCRs](glossary.html#ucrs).
 
-Exports follows a different process to imports, in that a declaration is not immediately linked with a consignment. Rather, the declaration data awaits one or more messages from the Loader/CSP and the ‘linking’ is triggered then.
+Exports follows a different process to imports, in that a declaration is not immediately linked with a consignment. Rather, the declaration data awaits one or more messages from the Loader/CSP, and the ‘linking’ is triggered then.
 
-Consolidation is used to facilitate moving one master consignment, rather than multiple individual declarations. A declaration will have its own ‘DUCR’, these can be consolidated into MUCRs ( ‘masters’ consignments). These MUCRs can then also be further consolidated into other MUCRs (provided they are shut).
+Consolidation is used to facilitate moving one master consignment, rather than multiple individual declarations. A declaration will have its own DUCR. These can be consolidated into MUCRs ( ‘master’ consignments). These MUCRs can then also be further consolidated into other MUCRs (provided they are shut).
 
 CDS will accept the following message to the [API endpoint](/api-documentation/docs/api/service/customs-inventory-linking-exports) that relates to:
 
-- associating, splitting, and shutting (EAC (Export Associate Consignment)) 
-- shutting (CST (Consolidation Shut Transaction)) of consignments
+- associating, splitting, and shutting (Export Associate Consignment, or EAC)
+- shutting (Consolidation Shut Transaction, or CST) of consignments
 
-Note - Only DUCRs with a SOE value of 4 or 6 will be auto-disassociated if a MUCR is
-rejected.  For other SOEs this disassociation will not occur automatically to allow for goods
-to be physically removed from the consignment.
+**Note:** Only DUCRs with a [SOE](glossary.html#soe) value of 4 or 6 will be automatically disassociated if a MUCR is rejected. For other SOEs, this disassociation will not occur automatically to allow for goods to be physically removed from the consignment.
 
 
 ##Movement of goods
@@ -39,13 +37,13 @@ CDS will accept a message to the [API endpoint](/api-documentation/docs/api/serv
 
 The movement can relate to an individual DUCR, or a master MUCR.
 
-Any movement concerning a MUCR applies to all the underlying declarations. For example, when a MUCR is arrived, all the declarations underneath the MUCR (and child MUCRs) will also be marked as arrived.
+Any movement concerning a MUCR applies to all the underlying declarations. For example, when a MUCR is marked as arrived, all the declarations underneath the MUCR (and child MUCRs) will also be marked as arrived.
 
 The CDS system will notify CSPs of changes to a declaration if there is a movement involving it.
 
 ##Query
  
-The Query Service has been defined to facilitate the display of details for inventory linked consignments which includes details such as the immediate parent and child or children for the entered UCR.
+The Query Service has been defined to facilitate the display of details for inventory linked consignments, which includes details such as the immediate parent and child (or children) for the entered UCR.
 
 When a UCR is entered into the query service from an actor, Inventory Linking will return the following corresponding relationships:
 
