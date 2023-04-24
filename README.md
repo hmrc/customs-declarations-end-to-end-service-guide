@@ -1,89 +1,76 @@
 # Technical Documentation - Customs Declarations Service Guide
 
-## Getting started
+## Overview
 
-To preview or build the website, we need to use the terminal.
+This repository contains the source files that are used to generate the [Customs Declarations End-to-End Service Guide on the HMRC Developer Hub](https://developer.service.hmrc.gov.uk/guides/customs-declarations-end-to-end-service-guide).
 
-Install Ruby with Rubygems, perferably with a [Ruby version manager][rvm],
-and the [Bundler gem][bundler].
+## Editing Service Guide pages
 
-In the application folder type the following to install the required gems:
+To make changes, edit the files that are located in `./source/documentation`. All pages are written in [Markdown](https://en.wikipedia.org/wiki/Markdown).
 
+To add new pages simply copy and paste one of the existing pages, it will automatically appear in the menu.
+
+## Previewing
+
+#### Option 1 - Using Docker (recommended)
+
+Requirements:
+* [Docker](https://www.docker.com/)
+
+To live preview:
+```
+./batect preview
+```
+The local URL and port where the files can be previewed will be output, this is normally http://localhost:4567.
+
+**Note:** The first time this is run it builds the Docker image and installs dependencies so may take 5 mins.
+Subsequent runs will be much quicker.
+
+#### Option 2 - Local install (Not recommended)
+
+Requirements:
+* [Ruby Version Manager][rbenv]
+* [Node Version Manager][nodenv]
+
+To live preview:
 ```
 bundle install
+bundle exec middleman serve
+```
+The local URL and port where the files can be previewed will be output, this is normally http://localhost:4567.
+
+## Running the Scala Application
+
+Requirements:
+* Scala/sbt
+
+### Build the HTML files
+```
+./batect build
+```
+### Run the Scala Application
+```
+sbt run
 ```
 
-## Making changes
+The local URL and port where the files can be previewed will be output, this is normally http://localhost:9000.
 
-To make changes edit the source files in the `source` folder.
-
-### Single page output
-
-Although a single page of HTML is generated the markdown is spread across
-multiple files to make it easier to manage. They can be found in
-`source/documentation`.
-
-A new markdown file isn't automatically included in the generated output. If we
-add a new markdown file at the location `source/documentation/agile/scrum.md`,
-the following snippet in `source/index.html.md.erb`, includes it in the
-generated output.
-
+### How do I update the Ruby Gems
+To update the Ruby Gems to the latest versions, run
 ```
-<%= partial 'documentation/agile/scrum' %>
+./batect update
 ```
+This will update the `Gemfile.lock`
 
-Including files manually like this lets us specify the position they appear in
-the page.
+### How do I change the Ruby version
+Edit `.ruby-version` with the required version of Ruby.
 
-### Multiple pages
+### How do I change the Node version
+Edit `.node-version` with the required version of Node.
 
-To add a completely new page, create a file with a `.html.md` extension in the `/source` directory.
+[tdt]: https://github.com/alphagov/tech-docs-template
+[rbenv]: https://github.com/rbenv/rbenv
+[nodenv]: https://github.com/nodenv/nodenv
 
-For example, `source/about.html.md` will be accessible on <http://localhost:4567/about.html>.
-
-## Preview
-
-Whilst writing documentation we can run a middleman server to preview how the
-published version will look in the browser. After saving a change the preview in
-the browser will automatically refresh.
-
-The preview is only available on our own computer. Others won't be able to
-access it if they are given the link.
-
-Type the following to start the server:
-
-```
-bundle exec middleman server
-```
-
-If all goes well something like the following output will be displayed:
-
-```
-== The Middleman is loading
-== LiveReload accepting connections from ws://192.168.0.8:35729
-== View your site at "http://Laptop.local:4567", "http://192.168.0.8:4567"
-== Inspect your site configuration at "http://Laptop.local:4567/__middleman", "http://192.168.0.8:4567/__middleman"
-```
-
-You should now be able to view a live preview at http://localhost:4567.
-
-## Build
-
-If you want to publish the website without using a build script you may need to
-build the static HTML files.
-
-Type the following to build the HTML:
-
-```
-bundle exec middleman build
-```
-
-This will create a `build` subfolder in the application folder which contains
-the HTML and asset files ready to be published.
-
-[rvm]: https://www.ruby-lang.org/en/documentation/installation/#managers
-[bundler]: http://bundler.io/
-
-### License
-
+## License
 This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").

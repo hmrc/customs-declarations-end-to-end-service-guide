@@ -2,9 +2,20 @@ require 'govuk_tech_docs'
 require 'govuk_tech_docs/table_of_contents/heading'
 require 'govuk_tech_docs/table_of_contents/headings_builder'
 require 'govuk_tech_docs/tech_docs_html_renderer'
+require 'yaml'
 
 configure :build do
-  base_path = ENV['BASE_PATH'] || '/' # Note: please ensure BASE_PATH ends with a trailing '/'
+
+  tech_docs = YAML.load_file('config/tech-docs.yml')
+  service_name = tech_docs['service_name']
+  service_link = tech_docs['service_link']
+  project_name = tech_docs['project_name']
+
+  base_path = service_link
+  # Note: ensure base_path ends with a trailing '/'
+  if base_path[-1, 1] != '/'
+    base_path += '/'
+  end
 
   activate :asset_host, host: base_path
   config[:http_prefix] = base_path
