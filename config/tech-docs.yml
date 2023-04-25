@@ -1,17 +1,28 @@
+# Human read-able name for this site, displayed in the header bar
+service_name: Customs Declarations end-to-end service guide
+
+# The route that will be used to access this site (with tailing slash)
+service_link: /guides/customs-declarations-end-to-end-service-guide/
+
+# ================================================
+# You shouldn't need to edit anything below here
+# ================================================
+
 # Host to use for canonical URL generation (without trailing slash)
-host: docs.developer.service.hmrc.gov.uk
+host: developer.service.hmrc.gov.uk
 
 # Header-related options
 show_govuk_logo: true
-service_name: HMRC Developer Hub
-service_link: https://developer.service.hmrc.gov.uk/api-documentation
 
 # Links to show on right-hand-side of header
 header_links:
-  Customs Declarations End-to-End Service Guide: /guides/customs-declarations-end-to-end-service-guide
-  Documentation: /api-documentation/docs/using-the-hub
-  Applications: /developer/applications
-  Support: /developer/support
+  Developer Hub: https://developer.service.hmrc.gov.uk
+  Documentation: https://developer.service.hmrc.gov.uk/api-documentation/docs/using-the-hub
+  Applications: https://developer.service.hmrc.gov.uk/developer/applications
+  Support: https://developer.service.hmrc.gov.uk/developer/support
+
+footer_links:
+  Accessibility statement: https://www.tax.service.gov.uk/accessibility-statement/hmrc-developer-hub
 
 # Enables search functionality. This indexes pages only and is not recommended for single-page sites.
 enable_search: false
@@ -39,4 +50,3 @@ max_toc_heading_level: 2
 prevent_indexing: false
 
 show_contribution_banner: false
-github_repo: hmrc/customs-declarations-end-to-end-service-guide.git
