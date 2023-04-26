@@ -17,6 +17,8 @@ To add new pages simply copy and paste one of the existing pages, it will automa
 Requirements:
 * [Docker](https://www.docker.com/)
 
+**Tip:** On macOS, use Homebrew to install [colima](https://github.com/abiosoft/colima) and then Docker client. Then start colima.
+
 To live preview:
 ```
 ./batect preview
