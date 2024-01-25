@@ -10,6 +10,3 @@ lazy val microservice = Project(appName, file("."))
     majorVersion := 0,
     scalaVersion := "2.13.10"
   )
-  .settings(
-    publishingSettings: _*
-  )
