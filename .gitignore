@@ -25,3 +25,5 @@ yarn-error.log
 /vendor
 /.batect
 /.bsp
+/.DS_Store
+source/.DS_Store
