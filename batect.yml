@@ -41,4 +41,4 @@ tasks:
       - install
     run:
       container: ruby
-      command: bundle exec middleman build --build-dir=public/ --clean
+      command: sh -c "bundle exec middleman build --build-dir=public/ --clean && sed -i 's#url(\"/assets/govuk/assets/#url(\"/guides/customs\-declarations\-end\-to\-end\-service\-guide/assets/govuk/assets/#g' ./public/stylesheets/manifest.css"
