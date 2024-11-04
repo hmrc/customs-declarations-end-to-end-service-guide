@@ -2,3 +2,4 @@
 GET     /guides/customs-declarations-end-to-end-service-guide           controllers.Default.redirect(to = "/guides/customs-declarations-end-to-end-service-guide/")
 GET     /guides/customs-declarations-end-to-end-service-guide/          controllers.Assets.at(path="/public", file="index.html")
 GET     /guides/customs-declarations-end-to-end-service-guide/*file     controllers.Assets.at(path="/public", file)
+GET     /*file     controllers.Assets.at(path="/public", file)
