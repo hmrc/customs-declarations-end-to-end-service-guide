@@ -49,7 +49,7 @@ Please click the link below to download the zip file:
  </p>
 
 
- <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 55.7MB last updated 17/12/2024</p>
+ <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">ZIP, 55.50MB last updated 09/01/2025</p>
 
  <p class="govuk-body-s" style="font-size: 16px;margin-bottom: 15px;">The zip file contains Office files (files that have .odt, .ods, .odp, .docx and .xlsx file name extensions). Open them in your preferred application.</p>
  
