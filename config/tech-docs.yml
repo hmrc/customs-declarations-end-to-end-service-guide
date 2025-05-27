@@ -3,6 +3,7 @@ service_name: Customs Declarations end-to-end service guide
 
 # The route that will be used to access this site (with tailing slash)
 service_link: /guides/customs-declarations-end-to-end-service-guide/
+use_service_link_for_favicon: true
 
 # ================================================
 # You shouldn't need to edit anything below here
