@@ -29,6 +29,7 @@ class BuildSpec extends AnyWordSpec with Matchers {
     val source: BufferedSource = Source.fromFile(file, "UTF-8")
     try source.getLines().mkString("\n")
     finally source.close()
+
   }
 
   private def updateFileContent(filePath: String, newContent: String): Unit = {
