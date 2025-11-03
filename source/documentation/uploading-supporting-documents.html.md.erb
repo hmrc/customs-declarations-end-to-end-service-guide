@@ -10,31 +10,64 @@ This section describes the technical steps for sending a document to CDS, using 
 
 The Document Upload UI is out of scope for this service guide and will be covered in a separate user guide produced by the CDS programme.
 
-### Background
-Currently, CHIEF does not provide traders with a service to digitally upload documentation to support the processing of customs import and export declarations. Traders provide the supporting documentation via a multitude of channels and document mediums, and HMRC National Clearance Hub (NCH) caseworkers currently manually receive and process documentation provided by declarants in support of submitted customs declarations.
-
-Under the Customs Declaration Service (CDS), HMRC has delivered the CDS Digital Secure File Upload Service to remove the need for the manual processing of supporting documentation for declarations submitted on CDS. The CDS Digital Secure File Upload Service allows the documentation uploaded in support of a declaration to be automatically transferred into HMRC’s case management solution for review.
+## Background
+HMRC has delivered the CDS Digital Secure File Upload Service to remove any need for manual processing of supporting documentation for declarations submitted on the Customs Declarations Service (CDS). Uploaded supporting documentation is automatically transferred into HMRC’s case management solution for review.
 
 ## Document upload process
-#### Process overview
 The file-upload endpoint will accept requests from the trader’s software to upload a number of files for a given declaration ID (an MRN like `23GBXXXXXXXXXXXXXX`, where `X` represents a randomly-generated alphanumeric character), and will respond with a location (URL) where each file should be uploaded. The trader will then upload each file into an inbound file bucket.
 
 The API will return a unique file reference code to the software for each file successfully submitted by the trader via a Digital notification. This file reference code can be used in future correspondence with HMRC. Please note that the submitter of the file will not receive a confirmation notification from back-end CDS systems that confirm the file has been matched to the declaration.
 
 The CDS system uses the MRN to link documents uploaded via the Secure File Upload Service and the original declaration. HMRC Caseworkers will be notified when each document uploaded by the trader is received, and also when all files uploaded together as a group for a declaration have been received. When all files have been received, HMRC Caseworkers will review the documents they contain against the case for the declaration ID provided in the original API call.
 
-Currently, if an HMRC Caseworker requires a submission of supporting documents, the trader will be notified via email. If the HMRC Caseworker finds any issues with the submitted documents, they will notify the trader to upload their documents again. Under current processes, the NCH will contact the declarant via email in the event that further information is required. HMRC is currently working to deliver an automated solution for handling such requests and this document will be updated once the solution has been confirmed.
-
-In such cases, the HMRC caseworker will also reset any service level agreements that have been defined around this process.
-
 The files uploaded by the trader will be scanned for malware and then stored in HMRC’s document repository system where they will be retained in accordance with [HMRC policies](https://www.gov.uk/government/publications/hmrc-records-management-and-retention-and-disposal-policy/records-management-and-retention-and-disposal-policy) (6 years plus current).
 
-#### Initiating an upload and documentary controls
-An authenticated trader may use the service at any time to submit files that contain supporting documents for their declarations.
+### Initiating an upload and documentary controls
+An authenticated trader may use the service at any time to submit files that contain supporting documents for their declarations (this is only relevant to Frontier Declarations). It is not necessary to wait for an email or DMSDOC notification from HMRC.
 
-In some cases, a trader may have also received a DMSDOC notification, triggered by the declaration risking process (Route 1 or Route 3), asking them to submit documents for a declaration that they have submitted. However, it is not necessary to wait for a DMSDOC notification to upload a file to HMRC via the CDS Digital Secure File Upload Service.
+In the event that further information is required in order to process a declaration, the NCH Caseworker will notify the trader of the fact that there is a query using secure messaging. The response to the query may include submission of further documents. Other departments and customs authorities using CDCM including Border Force can also raise their own cases and access secure messaging to contact the trader.
 
-It should be noted that the DMSDOC notification will not link to the Secure File Upload Service, but the documents to be uploaded are specified by the WCO StatementCode in the DMSDOC. The same applies to CSP notifications and the Customs Declarations Information API, which return the routing status for the declaration, but not which documents are required (see Section 1.3 References). In the event of a documentary check, a declarant can either choose to upload the particular document that is expected to have triggered the control (for example, a licence document) or all documentation associated with the declaration.
+In some cases, a trader may have also received a DMSDOC notification, triggered by the declaration risking process (Route 1 or Route 3), asking them to submit documents for a declaration that they have submitted.
+
+It should be noted that the DMSDOC notification will not link to the Secure File Upload Service, but the documents to be uploaded are specified by the WCO StatementCode. The same applies to CSP notifications and the Customs Declarations Information API, both of which return the routing status for the declaration, but not which documents are required (see Section 1.3 References). In the event of a documentary check, a declarant may choose to upload the particular document that is expected to have triggered the control (for example, a licence document) or all documentation associated with the declaration.
+
+## Two-way secure messaging
+ 
+The ‘CDS document uploads and secure messages’ service incorporates a secure inbox which can be used by CDCM case management system. Case workers from NCH, Border Force and Office for Product Safety and Standards (OPSS) can use this secure message service to raise a query on documents or goods in Documentary Control or Physical Control. 
+
+Replies to secure messages trigger the service level agreement case timer on CDCM.
+
+Users can reply once or multiple times to messages. The messages are identified by MRN and case number, and by the authority name of the sender of the message.
+
+### Using the two-way secure message UI
+
+This section provides a detailed overview of the steps users should follow to obtain access to the ‘CDS document uploads and secure messages’ service. The user will gain access to the UI service via GOV.UK, using their Government Gateway registration credentials. Note, a valid EORI and subscription to CDS is a mandatory requirement.
+
+#### Selecting the message type
+
+1. The user should select **View messages about your declarations**:
+![view-messages](/documentation/resources/view-messages.png)
+
+2. The user should then select the type of message that they want to see (exports messages or imports messages):
+![select-message-type](/documentation/resources/select-message-type.png)
+
+#### Using the secure inbox
+
+The user’s secure inbox is a conversation-by-conversation view of messages, date and time stamped, with the most recent message at the top:
+
+![secure-inbox](/documentation/resources/secure-inbox.png)
+
+The user can open the thread, which will always be identifiable by the MRN in the subject line.
+
+The body content of the message is the text written by the HMRC case worker on the CDCM system. Sometimes a reply-only action is all that is needed (e.g. no documents need to be uploaded).
+
+If the user sends a message back to the customs agency using the messaging feature, they will get a confirmation page and a link back to the inbox they previously selected:
+
+![message-sent](/documentation/resources/message-sent.png)
+
+#### Actions requested in the query message
+
+The query message may alert the user to actions such as to upload further documentation, amend a declaration, or take some action with another government agency. Replying to the query message alerts the case worker that documents are ready to be checked, without this the declaration will not progress.
 
 ## Using the file-upload API endpoint
 
@@ -262,9 +295,8 @@ A documentary control can be triggered in External Test by using the appropriate
 
 There are no current plans to deliver the Secure File Upload UI into either of the External Test services (Trade Test, or Trader Dress Rehearsal).
 
-#### Trade Test
-##### Functionality from TTM11.0
-Beginning in August 2020 (TTM11.0), the functionality available in Trade Test will be expanded to provide a richer experience that more closely aligns to the behaviour in the Production environment. The revised capability in Trade Test for the file-upload API endpoint will be as follows:
+#### Functionality
+The testing journey in the External Test environments is as follows:
 
 1. The user submits a request to the `customs/declarations/file-upload` endpoint.
 2. A synchronous HTTP 200 response is returned to the user, along with a response body containing the S3 bucket location and other details required for the file upload. These are real S3 bucket details and none of the information is stubbed.
@@ -278,9 +310,6 @@ Beginning in August 2020 (TTM11.0), the functionality available in Trade Test wi
   - image/jpeg
   - text/plain
 4. The file will undergo virus scan checks and, if the scan is successful, the user will be notified via an asynchronous notification that the file upload has been successful. Otherwise, they will be notified that the file has failed the virus scan and has been quarantined. This notification will be received as a push or pull notification, depending on the presence or absence of a callback URL during the API subscription process.
-
-#### Trader Dress Rehearsal
-From August 2020, the file-upload API endpoint will be available in the Trader Dress Rehearsal environment, with the same functionality as outlined above for Trade Test (as delivered in TTM11.0).
 
 ### Screenshots using Postman
 
