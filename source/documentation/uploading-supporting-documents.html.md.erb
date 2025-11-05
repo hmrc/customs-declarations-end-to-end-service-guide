@@ -90,13 +90,13 @@ For each file specified in the initiate request, compose a POST request to the S
 ##### Step 4: await notification
 An asynchronous notification will indicate the success or failure of the upload. These are retrieved like declaration notifications. Failures can be due, for example, to invalid file types or to files being too large.
 
-### Process flow
+##### Process flow
 The diagram below outlines the high-level functionality of Phase 2:
 
 ![Comm](/documentation/resources/file-upload-process-flow.png)
 
-## Detailed steps
-### Step 1: initiate the upload
+### Detailed steps
+#### Step 1: initiate the upload
 Ensure the MRN is used as the Declaration ID within the payload.
 
 Call the `/customs/declarations/file-upload` endpoint to initiate the file-upload process.
@@ -116,7 +116,7 @@ Here is a typical request payload:
 </hmrc:FileUploadRequest>
 ```
 
-#### Rules for file initiation requests
+##### Rules for file initiation requests
 * A maximum of 11 files may be initiated in a single request. To initiate two file uploads with no optional elements, for example:
 
 ```xml
@@ -157,7 +157,7 @@ Here is a typical request payload:
         </hmrc:FileUploadRequest>
 ```
 
-#### Http headers
+##### HTTP headers
 The headers are described in detail in the file-upload endpoint section of the  Customs Declarations API documentation on the Developer Hub. To summarise, they are:
 
 
@@ -176,7 +176,7 @@ The headers are described in detail in the file-upload endpoint section of the  
 
 See the screenshot below for an example of a request being sent using the [Postman](https://postman.com) application.
 
-#### Response codes
+##### Response codes
 A successful initiate upload returns an HTTP 200 OK response code, with a payload containing an S3 `Href` and a `Fields` collection (one per file upload initiated &mdash; see step 2 below).
 
 A failure is indicated by a 4XX or 5XX response code.
@@ -207,7 +207,7 @@ For an internal server error, an error code 500 is returned with the following b
 
 For other errors, see the [Reference guide](https://developer.service.hmrc.gov.uk/api-documentation/docs/reference-guide#errors) on the Developer Hub.
 
-### Step 2: parse the response
+#### Step 2: parse the response
 A typical response payload resulting from the first request would be:
 
 ```xml
@@ -241,7 +241,7 @@ A typical response payload resulting from the first request would be:
 
 **Note:** When multiple files are initiated in the request, a single response that contains multiple `File` elements is returned. Each of these are then composed into separate POST requests to S3 in the next step.
 
-### Step 3: upload the file
+#### Step 3: upload the file
 
 Upload a file by:
 
@@ -257,7 +257,7 @@ If multiple files are specified in the initiate request, then there will be an e
 
 See the screenshot below for an example of a request being sent using the [Postman](https://postman.com) application.
 
-### Step 4: await notification
+#### Step 4: await notification
 A notification indicating the success or failure of the upload will be sent after a short period of time. These are sent like any other declaration notification. There is one notification per file that is uploaded to S3.
 
 If declaration notifications are "pushed", then file upload notifications will be pushed too. In this case, the `ConversationId` HTTP header will be set to the `Reference` element in the file-upload response.
