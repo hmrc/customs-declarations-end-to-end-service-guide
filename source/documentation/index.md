@@ -11,11 +11,11 @@ This guide explains how you can integrate your software with our APIs to complet
 It shows how the APIs fit into various end-to-end user journeys. It is also intended to help software developers, designers, product owners or business analysts understand how your software needs to interact with HMRC systems.
 
 ## Overview
-The Customs Declaration Service (CDS) is replacing the Customs Handling of Import and Export Freight (CHIEF) with a modern and flexible system that can handle anticipated future import and export growth.
+The Customs Declaration Service (CDS) supports making import and export declarations when moving goods into and out of the UK.
 
 [More information about the Customs Declaration Service](https://www.gov.uk/government/collections/customs-handling-of-import-and-export-freight-chief-replacement-programme).
 
-For imports or exports outside of the European Union, there will be differences in the information that needs to be put into declarations. This is due to changes to the [UK Trade Tariff](https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-cds) required by the Union Customs Code.
+CDS was developed to meet the requirements of the EU's Union Customs Code (UCC). Please refer to the [UK Trade Tariff](https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-cds) for guidance, codes and procedures to use when making a declaration.
 
 ## End-to-end user journeys
 These journeys show examples of use. 
