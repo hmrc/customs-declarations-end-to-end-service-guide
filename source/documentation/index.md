@@ -31,7 +31,7 @@ These journeys show examples of use.
 - [making arrival notifications](documentation/arrival-notifications.html)
 - [validating import movements (CSPs only)](documentation/validating-import-movements.html)
 
-**Note:** In this guide, links to the documentation for other CDS APIs (except for the Customs Inventory Linking Exports API) will only work when you have signed in to the Developer Hub and registered an application that subscribes to those APIs. For more information, see [Developer set-up](documentation/set-up-developers.html#set-up-for-developers).
+**Note:** In this guide, links to the Customs Inventory Linking Imports API documentation will only work when you have signed in to the Developer Hub and registered an application that subscribes to that API. For more information, see [Developer set-up](documentation/set-up-developers.html#set-up-for-developers).
 
 ## Technical Documentation
 
