@@ -30,12 +30,6 @@ The purpose of the CDS sandbox (also known as External Test) is to provide an HM
 
 The CDS External Test offering has two core services: Trade Test and Trader Dress Rehearsal, which are outlined below.
 
-## The Path to Production
-
-The Path to Production is the software developer and declarant journey from CHIEF to CDS, demonstrating the process and steps from Trade Test to Trader Dress Rehearsal and CDS.
-
-[The Path to Production](/documentation/resources/The_Path_to_Production_2024.pdf)
-
 ## Trade Test
 
 A functional test platform where third-party developers can assure their software integration against CDS APIs and a CDS back-end for all core declaration processes and notification types.
@@ -54,7 +48,7 @@ Trade Test is not a performance testing facility and has not been configured to 
 
 ## Trader Dress Rehearsal
 
-A CDS-like service to support declarants in submitting all types of declarations, to expose all actors in the supply chain to declaration processing in CDS as part of their final assurance activity prior to migration.
+A CDS-like service to support declarants in submitting all types of declarations, to expose all actors in the supply chain to declaration processing in CDS as part of their final assurance activity prior to submitting to CDS Live.
 
 - Live trader and account data
 - Process all declaration types and procedures
@@ -133,15 +127,15 @@ In most cases, simply following software design best practices will deliver a go
 
 ## Related API documentation
 
-If you cannot access any of the following API documentation, please contact [Software Developer Hub Support](https://developer.service.hmrc.gov.uk/devhub-support) to check if your ‘ApplicationId’ needs to be [added to the allow list](/documentation/set-up-developers.html#api-access-control) for that API:
-
 - [Customs Declarations API](/api-documentation/docs/api/service/customs-declarations) - lets you submit, amend and cancel a customs declaration, and provides the ability to upload supporting documents and make arrival notifications 
 - [Customs Declarations Information API](/api-documentation/docs/api/service/customs-declarations-information) - lets you query the status of submitted customs declarations
 - [Pull Notifications API](/api-documentation/docs/api/service/api-notification-pull) - lets you “pull” business event notifications CDS has generated from requests submitted via the CDS APIs
 - [Customs Inventory Linking Exports API](/api-documentation/docs/api/service/customs-inventory-linking-exports) - lets you link export declarations with specific consignments (Consolidate, Movement & Query)
-- [Customs Inventory Linking Imports API (CSP only)](/api-documentation/docs/api/service/customs-inventory-linking-imports) - lets CSPs link import declarations with specific consignments
 - [Bulk Data File List (list of tariff codes)](/api-documentation/docs/api/service/secure-data-exchange-bulk-download) - lets you integrate tariff data into your customs software application, providing an initial start-up file, daily files and monthly consolidated files throughout the year.
 
+Access to the Customs Inventory Linking Imports API is restricted to CSPs. If you are a CSP and cannot access the following API documentation, please [contact SDST](https://developer.service.hmrc.gov.uk/devhub-support/start) to request access:
+
+- [Customs Inventory Linking Imports API (CSP only)](/api-documentation/docs/api/service/customs-inventory-linking-imports) - lets CSPs link import declarations with specific consignments
 
 ## Authentication
 
